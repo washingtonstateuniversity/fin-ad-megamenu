@@ -1,16 +1,16 @@
 body{    position: relative;}
 #mega{
-		position:absolute;
-		width:100%;
-		background:#494949;
-		/*height:376px;*/
+    position:absolute;
+    width:100%;
+    background:#494949;
+    /*height:376px;*/
 
-		height: calc(attr(data-height) + 50px);
-
-		z-index:99999;
-		top:-376px;
-		padding-top:50px;
-		box-sizing: border-box;
+    //height: calc(attr(data-height) + 50px);
+    min-height:405px;
+    z-index:99999;
+    top:-405px;
+    padding-top:50px;
+    box-sizing: border-box;
 }
 #megacontent{
     overflow: hidden;
@@ -101,8 +101,8 @@ body{    position: relative;}
 }
 #mega_crumb li a{
     font-size: 14px;
-font-weight: 400;
-color: #1f1f1f;
+    font-weight: 400;
+    color: #1f1f1f;
     font-style: italic;
 }
 #mega_crumb li a:hover{
