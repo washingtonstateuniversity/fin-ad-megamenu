@@ -27,6 +27,7 @@ module.exports = function(grunt) {
                     { expand: true, src: ["src/js/megamenu.js"], dest: "develop", flatten: true, },
                     { expand: true, src: ["build/_precss/megamenu.css"], dest: "develop", flatten: true, },
                     { expand: true, src: ["src/bootstrap.js"], dest: "develop", flatten: true, },
+                    { expand: true, src: ["develop/*"], dest: "//facops35/resources/central_FnA_theme/megamenu", flatten: true, },
                 ]
             }
         },
