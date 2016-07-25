@@ -21,9 +21,12 @@ module.exports = function(grunt) {
         copy:{
             maps: {
                 files: [
-                    { expand: true, src: ["build/pre_deploy/**/megamenu.*"], dest: "deploy", flatten: true, },
-                    { expand: true, src: ["build/_precss/megamenu.css"], dest: "deploy", flatten: true, },
-                    { expand: true, src: ["src/megamenu.js"], dest: "deploy", flatten: true, },
+                    //for deploy
+                    { expand: true, src: ["build/pre_deploy/**/megamenu.min.*"], dest: "deploy", flatten: true, },
+                    //for dev
+                    { expand: true, src: ["src/js/megamenu.js"], dest: "develop", flatten: true, },
+                    { expand: true, src: ["build/_precss/megamenu.css"], dest: "develop", flatten: true, },
+                    { expand: true, src: ["src/bootstrap.js"], dest: "develop", flatten: true, },
                 ]
             }
         },
@@ -33,8 +36,12 @@ module.exports = function(grunt) {
                     "/*   */\n"
             },
             build: {
-                src: "src/megamenu.js",
+                src: "src/js/megamenu.js",
                 dest: "deploy/megamenu.min.<%= pkg.version %>.js"
+            },
+            bootstrap: {
+                src: "src/bootstrap.js",
+                dest: "deploy/bootstrap.min.<%= pkg.version %>.js"
             }
         },
         autoprefixer: {
