@@ -1,10 +1,9 @@
 body{    position: relative;}
 #mega{
-    position:absolute;
+    position:fixed;
     width:100%;
     background:#494949;
     /*height:376px;*/
-
     //height: calc(attr(data-height) + 50px);
     min-height:405px;
     z-index:99999;
@@ -12,6 +11,9 @@ body{    position: relative;}
     padding-top:50px;
     box-sizing: border-box;
 }
+
+.admin-bar #mega{margin-top:32px;}
+
 #megacontent{
     overflow: hidden;
     box-sizing: border-box;
