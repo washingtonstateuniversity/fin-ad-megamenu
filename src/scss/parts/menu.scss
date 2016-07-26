@@ -216,3 +216,9 @@ li.ui-state-default.ui-corner-left a:hover, .ui-tabs .ui-tabs-nav li.ui-tabs-act
 	content:"";
 }
 
+@media only screen and (max-width: 768px){
+    .mega .ui-tabs-vertical .ui-tabs-nav.full-width-at-768,
+    .mega .ui-tabs-vertical .ui-tabs-panel.full-width-at-768 {
+        width: 100%;
+    }
+}
