@@ -56,7 +56,7 @@
         },
         "header":{
             "container":"<div id='mega_header' class='flex-row column-at-768'><h2>Finance and Administration</h2><ul id='mega_crumb'><% this.crumbs %></ul></div>",
-            "item":"<li><a href='<% this.crumb_url %>'><% this.crumb_name %></a></li>",
+            "item":"<li><a href='<% this.crumb_url %>' data-relation='<% this.data %>'><% this.crumb_name %></a></li>",
         }
 	};
 
@@ -115,7 +115,36 @@ function start(){
             var html = $.runTemplate( template.header.container, {
                 crumbs:function(){
                     var area_html = "";
-                    area_html = $.runTemplate( template.header.item, { crumb_url:"#", crumb_name:"here" });
+                    var parents = [];
+
+                    var list = [];
+
+                    list.push({
+                        _url : "/",
+                        _name : "undefined" !== window.fais ? window.fais.local.title : $('head title').text(),
+                        _data:"self"
+                    });
+
+                    if(parents.length){
+                        $.each(parents, function(idx,parent){
+                            list.push({
+                                _url : parent._url,
+                                _name : parent._name,
+                                _data:"partent"
+                            });
+                        });
+                    }
+                    list.push({
+                        _url : "https://baf.wsu.edu",
+                        _name : "F&A",
+                        _data:"root"
+                    });
+
+                    $.each( list, function(idx, item){
+                        area_html += $.runTemplate( template.header.item, { crumb_url:item._url, crumb_name:item._name ,data:item._data  });
+                    });
+
+
                     return area_html;
                 }
             });
