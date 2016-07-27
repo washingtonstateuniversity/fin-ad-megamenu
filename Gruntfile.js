@@ -5,6 +5,7 @@ module.exports = function(grunt) {
         watch: {
             files: [
                 "src/**/*",
+                "data/**/*",
             ],
             tasks: [ "sass", "jshint", "uglify" , "autoprefixer", "stylelint", "cssmin",   "copy" ]
         },
@@ -27,6 +28,11 @@ module.exports = function(grunt) {
                     { expand: true, src: ["src/js/megamenu.js"], dest: "develop", flatten: true, },
                     { expand: true, src: ["build/_precss/megamenu.css"], dest: "develop", flatten: true, },
                     { expand: true, src: ["src/bootstrap.js"], dest: "develop", flatten: true, },
+                ]
+            },
+            production: {
+                files: [
+                    { expand: true, src: ["data/*"], dest: "//facops35/resources/central_FnA_theme/megamenu" },
                     { expand: true, src: ["develop/*"], dest: "//facops35/resources/central_FnA_theme/megamenu", flatten: true, },
                 ]
             }
@@ -105,7 +111,7 @@ module.exports = function(grunt) {
         },
         jshint: {
             files: [
-                    "src/js/megamenu.js",
+                    "src/**/*.js",
                 ],
             options: {
                 // options here to override JSHint defaults
