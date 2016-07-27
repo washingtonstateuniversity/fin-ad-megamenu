@@ -44,215 +44,237 @@
 		return result;
 	};
 
-
-	//gotten from the central area with long cache
-	var template = {
-		"container":'<div id="mega" class="mega" data-height="405"><div id="megatail"></div><div id="megatab"><img src="data:image/svg+xml;utf8,%3Csvg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20313.26%20194.19%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23f4f3ef%3B%7D%3C/style%3E%3C/defs%3E%3Ctitle%3EF%26amp%3Bamp%3BA%20logo%3C/title%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2295.04%2081.19%2042.29%2081.19%2051.8%2037.2%20108.77%2037.2%20113.01%2013.2%2032.42%2013.2%200%20166.19%2024.37%20166.19%2037.48%20105.19%2090.52%20105.19%2095.04%2081.19%22/%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M472.87%2C138.4H449.32L383.7%2C255.8c-0.7.83-1.31%2C1.59-1.88%2C2.31s-1.08%2C1.35-1.61%2C2l-29.71-41.94c4.62-2.47%2C9-5%2C13.35-7.42l2.21-1.25a95%2C95%2C0%2C0%2C0%2C16.39-11.68A54.45%2C54.45%2C0%2C0%2C0%2C394%2C183.43a38.27%2C38.27%2C0%2C0%2C0%2C4.46-18.68c0-12-4-21.68-12-28.86S368%2C125.2%2C354.87%2C125.2c-15.31%2C0-27.83%2C4.51-37.21%2C13.4s-14.22%2C20.82-14.22%2C35.29c0%2C11.52%2C3.79%2C23.88%2C11.29%2C36.8-16.19%2C8.1-28%2C16.65-35.26%2C25.43a52.31%2C52.31%2C0%2C0%2C0-11.94%2C34.11c0%2C15%2C4.57%2C26.9%2C13.6%2C35.48s21%2C12.85%2C35.72%2C12.85A87.34%2C87.34%2C0%2C0%2C0%2C348.71%2C313c7.82-3.06%2C16.85-6.91%2C26.38-14.18l13.42%2C20.58h33.83l-25.42-33.5c4.74-7%2C18.76-29.43%2C24.65-41.5h39.8l5.71%2C47h24.09Zm-17.17%2C57.4%2C3.07%2C27.6H428.94c11-21.71%2C18.26-36.17%2C21.47-42.61l0.93-1.85c0.75-1.5%2C1.48-3.06%2C2.2-4.65C454.06%2C181.74%2C454.79%2C189.09%2C455.69%2C195.8ZM336.46%2C155.52c4.14-4.28%2C9.92-6.36%2C17.67-6.36%2C5.74%2C0%2C9.91%2C1.45%2C12.76%2C4.43s4.29%2C7.16%2C4.29%2C12.63a18.92%2C18.92%2C0%2C0%2C1-3.24%2C10.92%2C40.9%2C40.9%2C0%2C0%2C1-9.48%2C9.68c-3.77%2C2.83-10.63%2C6.82-20.4%2C11.89-5.18-8.06-7.81-16.31-7.81-24.57%2C0-8.1%2C2.09-14.36%2C6.2-18.62h0Zm-36%2C94.83c2-3.88%2C2.63-4.47%2C6.4-7.76l0.92-.81c4-3.5%2C10.52-7.69%2C19.4-12.46l34%2C48.06a51.13%2C51.13%2C0%2C0%2C1-10%2C4.87c-1.06.4-2.23%2C0.86-3.66%2C1.44A51.45%2C51.45%2C0%2C0%2C1%2C328%2C287.52c-8.13%2C0-14.44-2.29-19.29-7A39%2C39%2C0%2C0%2C1%2C298%2C261.13C297.39%2C258.3%2C298.15%2C254.88%2C300.44%2C250.35Z%22%20transform%3D%22translate%28-177.91%20-125.2%29%22/%3E%3C/svg%3E"/><i></i></div><div id="megacontent"><% this.header %><% this.tabs_area %></div></div>',
-		"tabs":{
-            "wrapper":"<div id='tabs' class='ui-tabs ui-tabs-vertical flex-row column-at-768'><ul class='ui-tabs-nav hide-below-768'><% this.tabs_menu %></ul><% this.tabs %></div>",
-            "content":"<div id='tabs-<% this.tab_idx %>' class='full-width-at-768'><% this.tab_content %></div>",
-            "menu_item":"<li><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %>'><% this.menu_tab_name %></a></li>",
-            "res_menu_wrap":"<div id='res_wrap'><span id='res_selected'></span><span class='dropdown-menu'><ul class='res-menu-wrap'><% this.res_tabs_menu %></ul></span></div>",
-        },
-        "header":{
-            "container":"<div id='mega_header' class='flex-row column-at-768'><h2>Finance and Administration</h2><ul id='mega_crumb'><% this.crumbs %></ul></div>",
-            "item":"<li><a href='<% this.crumb_url %>' data-relation='<% this.data %>'><% this.crumb_name %></a></li>",
-        }
-	};
-
-var _html = "";
-var _json = false;
-var mega_height=$("#mega").height();
-$.ajax({
-    url:"http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/data/static.txt",
-    dataType:"jsonp",
-    jsonpCallback:"static"
-}).done(function(data){
-    _json = data[0];
-    //console.log(_json);
-    start();
-});
-
-    function set_menu_size(){
-        mega_height=$("#mega").height();
-        $("#mega").data("height",mega_height);
-        //console.log(mega_height);
-        if( ! $("#mega").is(".open")){
-            $("#mega").css("top","-"+mega_height-50);
-        }
-    }
-    function close_menu(){
-        $("#mega").animate({
-        top: "-"+mega_height-50,
-        }, 200, "easeInExpo", function() {
-        // Animation complete.
-        });
-        $("#mega").removeClass("open");
-    }
-    var _Drop;
-    _Drop = Drop.createContext({
-        classPrefix: "drop"
-    });
-function setupDrops( target ) {
-
-    var $dropTrigger, $target, content, drop, openOn, position, targetAttachment, $is_vertical;
-    $dropTrigger = target;
-
-    $is_vertical = $dropTrigger.is(".btn-group-vertical .dropdown-toggle");
-    openOn = $dropTrigger.data("open-on") || "click";
-    $target = $dropTrigger;
-    content = $dropTrigger.next(".dropdown-menu").html() || $("#" + $dropTrigger.data("drop-for")).html();
-    position = $dropTrigger.data("position") || ( $is_vertical ? "top left" : "top left" );
-    targetAttachment = $dropTrigger.data("attachment") || ( $is_vertical ? "top right" : "bottom left" );
-    return drop = new _Drop({
-        target: $target[0],
-        position: position,
-        tetherOptions: {
-            targetAttachment: targetAttachment,
-            attachment: position,
-        },
-        constrainToWindow: true,
-        constrainToScrollParent: false,
-        openOn: openOn,
-        content: content,
-        //beforeClose: "undefined" === callback.beforeClose ? callback.beforeClose() : function(){}
-    });
-}
-
-function start(){
-	//gotten from the central location but lick a 5 min cache
-
-    _html = $.runTemplate(template.container, {
-        "tabs_area":function(){
-            var menuhtml = "";
-            var tabhtml = "";
-            var area_html = "";
-            var count = 0;
-            $.each( _json.service_areas, function( name, area ){
-                var idx = name.replace(/[^a-zA-Z0-9-_]/g, '-');
-                tabhtml += $.runTemplate(template.tabs.content, { tab_idx:idx, tab_content:area.content  });
-                menuhtml += $.runTemplate(template.tabs.menu_item, { count:count, menu_tab_idx:idx, menu_tab_name:name });
-                count++;
-            });
-            area_html += $.runTemplate(template.tabs.res_menu_wrap, { res_tabs_menu:menuhtml });
-            area_html += $.runTemplate(template.tabs.wrapper, { tabs_menu:menuhtml, tabs:tabhtml });
-            return area_html;
-        },
-        "header":function(){
-            var html = $.runTemplate( template.header.container, {
-                crumbs:function(){
-                    var area_html = "";
-                    var parents = [];
-
-                    var list = [];
-
-                    list.push({
-                        _url : "/",
-                        _name : "undefined" !== window.fais ? window.fais.local.title : $('head title').text(),
-                        _data:"self"
-                    });
-
-                    if(parents.length){
-                        $.each(parents, function(idx,parent){
-                            list.push({
-                                _url : parent._url,
-                                _name : parent._name,
-                                _data:"partent"
-                            });
-                        });
-                    }
-                    list.push({
-                        _url : "https://baf.wsu.edu",
-                        _name : "F&A",
-                        _data:"root"
-                    });
-
-                    $.each( list, function(idx, item){
-                        area_html += $.runTemplate( template.header.item, { crumb_url:item._url, crumb_name:item._name ,data:item._data  });
-                    });
-
-
-                    return area_html;
-                }
-            });
-            return html;
-        },
-    });
-
-    $('#binder').prepend(_html);
-    //$( "#res_wrap" ).appendTo( "body" );
-    mega_height=$("#mega").height();
-    $("#mega").width($('#binder').width());
-	$(document).ready(function(){
-        var res_menu = setupDrops( $( "#res_selected" ) );
-        $( "#tabs" ).tabs({
-            activate: function( ){//event, ui ) {
-                var activeTabIdx = $('#tabs').tabs('option','active');
-                $(".res-menu-wrap li.active").removeClass('active');
-                $(".res-menu-wrap li").eq(activeTabIdx).addClass("active");
-                $("#res_selected").html($(".res-menu-wrap li").eq(activeTabIdx).find('a').html());
+    $.wsu = $.wsu || {}; // extend wsu global name space
+    $.wsu.fais = $.wsu.fais || {}; // set up the unit name space
+    $.wsu.fais.megamenu = {};
+    (function(MM){
+        //gotten from the central area with long cache
+        MM.template = {
+            "container":'<div id="mega" class="mega" data-height="405"><div id="megatail"></div><div id="megatab"><img src="data:image/svg+xml;utf8,%3Csvg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20313.26%20194.19%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23f4f3ef%3B%7D%3C/style%3E%3C/defs%3E%3Ctitle%3EF%26amp%3Bamp%3BA%20logo%3C/title%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2295.04%2081.19%2042.29%2081.19%2051.8%2037.2%20108.77%2037.2%20113.01%2013.2%2032.42%2013.2%200%20166.19%2024.37%20166.19%2037.48%20105.19%2090.52%20105.19%2095.04%2081.19%22/%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M472.87%2C138.4H449.32L383.7%2C255.8c-0.7.83-1.31%2C1.59-1.88%2C2.31s-1.08%2C1.35-1.61%2C2l-29.71-41.94c4.62-2.47%2C9-5%2C13.35-7.42l2.21-1.25a95%2C95%2C0%2C0%2C0%2C16.39-11.68A54.45%2C54.45%2C0%2C0%2C0%2C394%2C183.43a38.27%2C38.27%2C0%2C0%2C0%2C4.46-18.68c0-12-4-21.68-12-28.86S368%2C125.2%2C354.87%2C125.2c-15.31%2C0-27.83%2C4.51-37.21%2C13.4s-14.22%2C20.82-14.22%2C35.29c0%2C11.52%2C3.79%2C23.88%2C11.29%2C36.8-16.19%2C8.1-28%2C16.65-35.26%2C25.43a52.31%2C52.31%2C0%2C0%2C0-11.94%2C34.11c0%2C15%2C4.57%2C26.9%2C13.6%2C35.48s21%2C12.85%2C35.72%2C12.85A87.34%2C87.34%2C0%2C0%2C0%2C348.71%2C313c7.82-3.06%2C16.85-6.91%2C26.38-14.18l13.42%2C20.58h33.83l-25.42-33.5c4.74-7%2C18.76-29.43%2C24.65-41.5h39.8l5.71%2C47h24.09Zm-17.17%2C57.4%2C3.07%2C27.6H428.94c11-21.71%2C18.26-36.17%2C21.47-42.61l0.93-1.85c0.75-1.5%2C1.48-3.06%2C2.2-4.65C454.06%2C181.74%2C454.79%2C189.09%2C455.69%2C195.8ZM336.46%2C155.52c4.14-4.28%2C9.92-6.36%2C17.67-6.36%2C5.74%2C0%2C9.91%2C1.45%2C12.76%2C4.43s4.29%2C7.16%2C4.29%2C12.63a18.92%2C18.92%2C0%2C0%2C1-3.24%2C10.92%2C40.9%2C40.9%2C0%2C0%2C1-9.48%2C9.68c-3.77%2C2.83-10.63%2C6.82-20.4%2C11.89-5.18-8.06-7.81-16.31-7.81-24.57%2C0-8.1%2C2.09-14.36%2C6.2-18.62h0Zm-36%2C94.83c2-3.88%2C2.63-4.47%2C6.4-7.76l0.92-.81c4-3.5%2C10.52-7.69%2C19.4-12.46l34%2C48.06a51.13%2C51.13%2C0%2C0%2C1-10%2C4.87c-1.06.4-2.23%2C0.86-3.66%2C1.44A51.45%2C51.45%2C0%2C0%2C1%2C328%2C287.52c-8.13%2C0-14.44-2.29-19.29-7A39%2C39%2C0%2C0%2C1%2C298%2C261.13C297.39%2C258.3%2C298.15%2C254.88%2C300.44%2C250.35Z%22%20transform%3D%22translate%28-177.91%20-125.2%29%22/%3E%3C/svg%3E"/><i></i></div><div id="megacontent"><% this.header %><% this.tabs_area %></div></div>',
+            "tabs":{
+                "wrapper":"<div id='tabs' class='ui-tabs ui-tabs-vertical flex-row column-at-768'><ul class='ui-tabs-nav hide-below-768'><% this.tabs_menu %></ul><% this.tabs %></div>",
+                "content":"<div id='tabs-<% this.tab_idx %>' class='full-width-at-768'><% this.tab_content %></div>",
+                "menu_item":"<li><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %>'><% this.menu_tab_name %></a></li>",
+                "res_menu_wrap":"<div id='res_wrap'><span id='res_selected'></span><span class='dropdown-menu'><ul class='res-menu-wrap'><% this.res_tabs_menu %></ul></span></div>",
+            },
+            "header":{
+                "container":"<div id='mega_header' class='flex-row column-at-768'><h2>Finance and Administration</h2><ul id='mega_crumb'><% this.crumbs %></ul></div>",
+                "item":"<li><a href='<% this.crumb_url %>' data-relation='<% this.data %>'><% this.crumb_name %></a></li>",
             }
-        }).addClass( "ui-tabs-vertical ui-helper-clearfix" );
-        $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+        };
 
+        MM._html = "";
+        MM._json = false;
+        MM.mega_height=0;
+        MM._Drop=null;
 
-        $("#megatab").on("click",function(){
-            set_menu_size();
-            if( ! $("#mega").is(".open") ){
-                $("#mega").addClass("open");
-                $("#mega").animate({
-                    top: "-50",
-                }, 500, "easeOutBack", function() {
-                    // Animation complete.
-                });
-            }else{
-                close_menu();
-            }
-        });
+        MM.init = function (){
+            MM.load_content(MM.start);
+        };
+        MM.load_content = function(callback){
+            $.ajax({
+                url:"http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/data/static.txt",
+                dataType:"jsonp",
+                jsonpCallback:"static"
+            }).done(function(data){
+                MM._json = data[0];
+                callback();
 
-
-
-        res_menu.on("open",function(){
-            $("#res_selected").on("click",function(){
-                //$(".res-menu-wrap").show();
             });
-            $(".res-menu-wrap a").off().on("click",function(e){
-                e.stopPropagation();
-                e.preventDefault();
-                var idx = $(this).data("idx");
-                $( "#tabs" ).tabs( "option", "active", idx );
-                $("#res_selected").html($("this").html());
-                $(window).trigger("resize");
-                //$(".res-menu-wrap").hide();
-                res_menu.close();
-            });
-        });
+        };
 
 
-
-        var int_idx = $('[aria-expanded="true"]').index($('#tabs'))+1; //+1 as there is a ul then
-        $(".res-menu-wrap li:eq("+int_idx+")").addClass("active");
-        $("#res_selected").html($(".res-menu-wrap li:eq("+int_idx+") a").html());
-        $(document).on("click",function(event) {
-            if(!$(event.target).closest('.res-menu-wrap').length && !$(event.target).is('#res_selected')){
-                //$(".res-menu-wrap").hide();
-               res_menu.close();
+        MM.set_menu_size = function (){
+            MM.mega_height=$("#mega").height();
+            $("#mega").data("height",MM.mega_height);
+            //console.log(MM.mega_height);
+            if( ! $("#mega").is(".open")){
+                $("#mega").css("top","-"+MM.mega_height-50);
             }
-            if(!$(event.target).closest('#mega').length && !$(event.target).is('#megatab')){
-                close_menu();
-            }
-        });
-        $(window).on("resize",function(){
-            set_menu_size();
-            //console.log("resizing");
-            $("#mega").width($('#binder').width());
-        }).trigger("resize");
-        set_menu_size();
-        $("#mega").animate({
-            top: "-"+mega_height-50,
-        }, 200, "easeInExpo", function() {
+        };
+        MM.close_menu = function (){
+            $("#mega").animate({
+            top: "-"+MM.mega_height-50,
+            }, 200, "easeInExpo", function() {
             // Animation complete.
-        });
-    });
-}
+            });
+            $("#mega").removeClass("open");
+        };
+        MM.ready_drops = function(){
+            MM._Drop = Drop.createContext({
+                classPrefix: "drop"
+            });
+        };
+        MM.setupDrops = function ( target ) {
+            var $dropTrigger, $target, content, drop, openOn, position, targetAttachment, $is_vertical;
+            $dropTrigger = target;
+
+            $is_vertical = $dropTrigger.is(".btn-group-vertical .dropdown-toggle");
+            openOn = $dropTrigger.data("open-on") || "click";
+            $target = $dropTrigger;
+            content = $dropTrigger.next(".dropdown-menu").html() || $("#" + $dropTrigger.data("drop-for")).html();
+            position = $dropTrigger.data("position") || ( $is_vertical ? "top left" : "top left" );
+            targetAttachment = $dropTrigger.data("attachment") || ( $is_vertical ? "top right" : "bottom left" );
+            return drop = new MM._Drop({
+                target: $target[0],
+                position: position,
+                tetherOptions: {
+                    targetAttachment: targetAttachment,
+                    attachment: position,
+                },
+                constrainToWindow: true,
+                constrainToScrollParent: false,
+                openOn: openOn,
+                content: content,
+                //beforeClose: "undefined" === callback.beforeClose ? callback.beforeClose() : function(){}
+            });
+        };
+
+        MM.setup_inner_menu_tabs = function(){
+            $( "#tabs" ).tabs({
+                activate: function( ){//event, ui ) {
+                    var activeTabIdx = $('#tabs').tabs('option','active');
+                    $(".res-menu-wrap li.active").removeClass('active');
+                    $(".res-menu-wrap li").eq(activeTabIdx).addClass("active");
+                    $("#res_selected").html($(".res-menu-wrap li").eq(activeTabIdx).find('a').html());
+                }
+            }).addClass( "ui-tabs-vertical ui-helper-clearfix" );
+            $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+        };
+
+        MM.start = function (){
+            //gotten from the central location but lick a 5 min cache
+            if( !$("#mega").length ){
+                MM._html = $.runTemplate(MM.template.container, {
+                    "tabs_area":function(){
+                        var menuhtml = "";
+                        var tabhtml = "";
+                        var area_html = "";
+                        var count = 0;
+                        $.each( MM._json.service_areas, function( name, area ){
+                            var idx = name.replace(/[^a-zA-Z0-9-_]/g, '-');
+                            tabhtml += $.runTemplate(MM.template.tabs.content, { tab_idx:idx, tab_content:area.content  });
+                            menuhtml += $.runTemplate(MM.template.tabs.menu_item, { count:count, menu_tab_idx:idx, menu_tab_name:name });
+                            count++;
+                        });
+                        area_html += $.runTemplate(MM.template.tabs.res_menu_wrap, { res_tabs_menu:menuhtml });
+                        area_html += $.runTemplate(MM.template.tabs.wrapper, { tabs_menu:menuhtml, tabs:tabhtml });
+                        return area_html;
+                    },
+                    "header":function(){
+                        var html = $.runTemplate( MM.template.header.container, {
+                            crumbs:function(){
+                                var area_html = "";
+                                var parents = [];
+
+                                var list = [];
+
+                                list.push({
+                                    _url : "/",
+                                    _name : "undefined" !== window.fais ? window.fais.local.title : $('head title').text(),
+                                    _data:"self"
+                                });
+
+                                if(parents.length){
+                                    $.each(parents, function(idx,parent){
+                                        list.push({
+                                            _url : parent._url,
+                                            _name : parent._name,
+                                            _data:"partent"
+                                        });
+                                    });
+                                }
+                                list.push({
+                                    _url : "https://baf.wsu.edu",
+                                    _name : "F&A",
+                                    _data:"root"
+                                });
+
+                                $.each( list, function(idx, item){
+                                    area_html += $.runTemplate( MM.template.header.item, { crumb_url:item._url, crumb_name:item._name ,data:item._data  });
+                                });
+
+
+                                return area_html;
+                            }
+                        });
+                        return html;
+                    },
+                });
+
+                $('#binder').prepend(MM._html);
+
+
+                $(document).ready(function(){
+                    MM.setup_inner_menu_tabs();
+
+                    MM.mega_height=$("#mega").height();
+
+                    $("#mega").width($('#binder').width());
+
+                    MM.ready_drops();
+                    var res_menu = MM.setupDrops( $( "#res_selected" ) );
+                    res_menu.on("open",function(){
+                        $("#res_selected").on("click",function(){
+                            //$(".res-menu-wrap").show();
+                        });
+                        $(".res-menu-wrap a").off().on("click",function(e){
+                            e.stopPropagation();
+                            e.preventDefault();
+                            var idx = $(this).data("idx");
+                            $( "#tabs" ).tabs( "option", "active", idx );
+                            $("#res_selected").html($("this").html());
+                            $(window).trigger("resize");
+                            //$(".res-menu-wrap").hide();
+                            res_menu.close();
+                        });
+                    });
+
+
+
+                    $("#megatab").on("click",function(){
+                        MM.setup_inner_menu_tabs();
+                        if( ! $("#mega").is(".open") ){
+                            $("#mega").addClass("open");
+                            $("#mega").animate({
+                                top: "-50",
+                            }, 500, "easeOutBack", function() {
+                                // Animation complete.
+                            });
+                        }else{
+                            MM.close_menu();
+                        }
+                    });
+
+                    var int_idx = $('[aria-expanded="true"]').index($('#tabs'))+1; //+1 as there is a ul then
+                    $(".res-menu-wrap li:eq("+int_idx+")").addClass("active");
+                    $("#res_selected").html($(".res-menu-wrap li:eq("+int_idx+") a").html());
+                    $(document).on("click",function(event) {
+                        if(!$(event.target).closest('.res-menu-wrap').length && !$(event.target).is('#res_selected')){
+                            //$(".res-menu-wrap").hide();
+                        res_menu.close();
+                        }
+                        if(!$(event.target).closest('#mega').length && !$(event.target).is('#megatab')){
+                            MM.close_menu();
+                        }
+                    });
+                    $(window).on("resize",function(){
+                        MM.set_menu_size();
+                        //console.log("resizing");
+                        $("#mega").width($('#binder').width());
+                    }).trigger("resize");
+                    MM.set_menu_size();
+                    $("#mega").animate({
+                        top: "-"+MM.mega_height-50,
+                    }, 200, "easeInExpo", function() {
+                        // Animation complete.
+                    });
+                });
+            }
+        };
+
+    }($.wsu.fais.megamenu));
+
+    $.wsu.fais.megamenu.init();
+
 }(jQuery));

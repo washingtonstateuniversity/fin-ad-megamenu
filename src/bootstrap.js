@@ -32,7 +32,7 @@
                 window.clearTimeout(loading);
                 loading = null;
                 for ( var i = 0; i < css_dependants.length; i++ ) {
-                    if ( !$("link[src*='"+css_dependants[i]+"]").length  ) {
+                    if ( !$("link[href*='"+css_dependants[i]+"]").length  ) {
                         var stylesheet = document.createElement('link');
                         stylesheet.rel ="stylesheet";
                         stylesheet.href = css_dependants[i];
@@ -51,17 +51,19 @@
                     }
                 ];
                 $.each(scriptArray, function(idx,script){
-                    $.ajax({
-                        type:"GET",
-                        dataType:"script",
-                        cache:true,
-                        url:script.src,
-                        success: function() {
-                            window.clearTimeout(loading);
-                            loading = null;
-                            script.exc();
-                        }
-                    });
+                    if ( !$("script[src*='"+script.src+"]").length  ) {
+                        $.ajax({
+                            type:"GET",
+                            dataType:"script",
+                            cache:true,
+                            url:script.src,
+                            success: function() {
+                                window.clearTimeout(loading);
+                                loading = null;
+                                script.exc();
+                            }
+                        });
+                    }
                 });
             }
         },50);
