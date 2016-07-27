@@ -145,6 +145,8 @@ module.exports = function(grunt) {
                     tinyMCE:true,
                     tinymce:true,
                     addthis:true,
+                    Drop:true,
+
                 }
             }
         },

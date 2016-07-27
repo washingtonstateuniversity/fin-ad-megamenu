@@ -52,7 +52,7 @@
             "wrapper":"<div id='tabs' class='ui-tabs ui-tabs-vertical flex-row column-at-768'><ul class='ui-tabs-nav hide-below-768'><% this.tabs_menu %></ul><% this.tabs %></div>",
             "content":"<div id='tabs-<% this.tab_idx %>' class='full-width-at-768'><% this.tab_content %></div>",
             "menu_item":"<li><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %>'><% this.menu_tab_name %></a></li>",
-            "res_menu_wrap":"<div id='res_wrap'><span id='res_selected'></span><ul class='res-menu-wrap'><% this.res_tabs_menu %></ul></div>",
+            "res_menu_wrap":"<div id='res_wrap'><span id='res_selected'></span><span class='dropdown-menu'><ul class='res-menu-wrap'><% this.res_tabs_menu %></ul></span></div>",
         },
         "header":{
             "container":"<div id='mega_header' class='flex-row column-at-768'><h2>Finance and Administration</h2><ul id='mega_crumb'><% this.crumbs %></ul></div>",
@@ -69,15 +69,14 @@ $.ajax({
     jsonpCallback:"static"
 }).done(function(data){
     _json = data[0];
-    console.log(_json);
+    //console.log(_json);
     start();
 });
-
 
     function set_menu_size(){
         mega_height=$("#mega").height();
         $("#mega").data("height",mega_height);
-        console.log(mega_height);
+        //console.log(mega_height);
         if( ! $("#mega").is(".open")){
             $("#mega").css("top","-"+mega_height-50);
         }
@@ -90,7 +89,35 @@ $.ajax({
         });
         $("#mega").removeClass("open");
     }
+    var _Drop;
+    _Drop = Drop.createContext({
+        classPrefix: "drop"
+    });
+function setupDrops( target ) {
 
+    var $dropTrigger, $target, content, drop, openOn, position, targetAttachment, $is_vertical;
+    $dropTrigger = target;
+
+    $is_vertical = $dropTrigger.is(".btn-group-vertical .dropdown-toggle");
+    openOn = $dropTrigger.data("open-on") || "click";
+    $target = $dropTrigger;
+    content = $dropTrigger.next(".dropdown-menu").html() || $("#" + $dropTrigger.data("drop-for")).html();
+    position = $dropTrigger.data("position") || ( $is_vertical ? "top left" : "top left" );
+    targetAttachment = $dropTrigger.data("attachment") || ( $is_vertical ? "top right" : "bottom left" );
+    return drop = new _Drop({
+        target: $target[0],
+        position: position,
+        tetherOptions: {
+            targetAttachment: targetAttachment,
+            attachment: position,
+        },
+        constrainToWindow: true,
+        constrainToScrollParent: false,
+        openOn: openOn,
+        content: content,
+        //beforeClose: "undefined" === callback.beforeClose ? callback.beforeClose() : function(){}
+    });
+}
 
 function start(){
 	//gotten from the central location but lick a 5 min cache
@@ -153,9 +180,11 @@ function start(){
     });
 
     $('#binder').prepend(_html);
+    //$( "#res_wrap" ).appendTo( "body" );
     mega_height=$("#mega").height();
     $("#mega").width($('#binder').width());
 	$(document).ready(function(){
+        var res_menu = setupDrops( $( "#res_selected" ) );
         $( "#tabs" ).tabs({
             activate: function( ){//event, ui ) {
                 var activeTabIdx = $('#tabs').tabs('option','active');
@@ -180,24 +209,34 @@ function start(){
                 close_menu();
             }
         });
-        $("#res_selected").on("click",function(){
-            $(".res-menu-wrap").show();
+
+
+
+        res_menu.on("open",function(){
+            $("#res_selected").on("click",function(){
+                //$(".res-menu-wrap").show();
+            });
+            $(".res-menu-wrap a").off().on("click",function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                var idx = $(this).data("idx");
+                $( "#tabs" ).tabs( "option", "active", idx );
+                $("#res_selected").html($("this").html());
+                $(window).trigger("resize");
+                //$(".res-menu-wrap").hide();
+                res_menu.close();
+            });
         });
-        $(".res-menu-wrap a").on("click",function(e){
-            e.stopPropagation();
-            e.preventDefault();
-            var idx = $(this).data("idx");
-            $( "#tabs" ).tabs( "option", "active", idx );
-            $("#res_selected").html($("this").html());
-            $(".res-menu-wrap").hide();
-        });
+
+
 
         var int_idx = $('[aria-expanded="true"]').index($('#tabs'))+1; //+1 as there is a ul then
         $(".res-menu-wrap li:eq("+int_idx+")").addClass("active");
         $("#res_selected").html($(".res-menu-wrap li:eq("+int_idx+") a").html());
         $(document).on("click",function(event) {
             if(!$(event.target).closest('.res-menu-wrap').length && !$(event.target).is('#res_selected')){
-                $(".res-menu-wrap").hide();
+                //$(".res-menu-wrap").hide();
+               res_menu.close();
             }
             if(!$(event.target).closest('#mega').length && !$(event.target).is('#megatab')){
                 close_menu();
@@ -205,7 +244,7 @@ function start(){
         });
         $(window).on("resize",function(){
             set_menu_size();
-            console.log("resizing");
+            //console.log("resizing");
             $("#mega").width($('#binder').width());
         }).trigger("resize");
         set_menu_size();
