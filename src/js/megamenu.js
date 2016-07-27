@@ -59,37 +59,49 @@
             "item":"<li><a href='<% this.crumb_url %>'><% this.crumb_name %></a></li>",
         }
 	};
+
+var _html = "";
+var _json = false;
+var mega_height=$("#mega").height();
+$.ajax({
+    url:"http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/data/static.txt",
+    dataType:"jsonp",
+    jsonpCallback:"static"
+}).done(function(data){
+    _json = data[0];
+    console.log(_json);
+    start();
+});
+
+
+    function set_menu_size(){
+        mega_height=$("#mega").height();
+        $("#mega").data("height",mega_height);
+        console.log(mega_height);
+        if( ! $("#mega").is(".open")){
+            $("#mega").css("top","-"+mega_height-50);
+        }
+    }
+    function close_menu(){
+        $("#mega").animate({
+        top: "-"+mega_height-50,
+        }, 200, "easeInExpo", function() {
+        // Animation complete.
+        });
+        $("#mega").removeClass("open");
+    }
+
+
+function start(){
 	//gotten from the central location but lick a 5 min cache
-	var json = {
-		service_areas: {
-			"Financial Services":{
-                content:"stuff and html I think",
-            },
-			"Facilities Services":{
-                content:"really stuff and html I think",
-            },
-			"Public Safety":{
-                content:"ok maybe stuff and html I think",
-            },
-			"Health & Safety and Risk Management Services":{
-                content:"but it has to be stuff and html I think",
-            },
-			"Real Estate and External Business Operations":{
-                content:"and why not stuff and html I think",
-            },
-			"Finance and Administration":{
-                content:"lets just stick with stuff and html I think",
-            }
-		},
-		global_massges: {}
-	};
-    var html = $.runTemplate(template.container, {
+
+    _html = $.runTemplate(template.container, {
         "tabs_area":function(){
             var menuhtml = "";
             var tabhtml = "";
             var area_html = "";
             var count = 0;
-            $.each( json.service_areas, function( name, area ){
+            $.each( _json.service_areas, function( name, area ){
                 var idx = name.replace(/[^a-zA-Z0-9-_]/g, '-');
                 tabhtml += $.runTemplate(template.tabs.content, { tab_idx:idx, tab_content:area.content  });
                 menuhtml += $.runTemplate(template.tabs.menu_item, { count:count, menu_tab_idx:idx, menu_tab_name:name });
@@ -111,24 +123,8 @@
         },
     });
 
-    function set_menu_size(){
-        mega_height=$("#mega").height();
-        $("#mega").data("height",mega_height);
-        console.log(mega_height);
-        if( ! $("#mega").is(".open")){
-            $("#mega").css("top","-"+mega_height-50);
-        }
-    }
-    function close_menu(){
-        $("#mega").animate({
-        top: "-"+mega_height-50,
-        }, 200, "easeInExpo", function() {
-        // Animation complete.
-        });
-        $("#mega").removeClass("open");
-    }
-    $('#binder').prepend(html);
-    var mega_height=$("#mega").height();
+    $('#binder').prepend(_html);
+    mega_height=$("#mega").height();
     $("#mega").width($('#binder').width());
 	$(document).ready(function(){
         $( "#tabs" ).tabs({
@@ -136,8 +132,7 @@
                 var activeTabIdx = $('#tabs').tabs('option','active');
                 $(".res-menu-wrap li.active").removeClass('active');
                 $(".res-menu-wrap li").eq(activeTabIdx).addClass("active");
-
-            $("#res_selected").html($(".res-menu-wrap li").eq(activeTabIdx).find('a').html());
+                $("#res_selected").html($(".res-menu-wrap li").eq(activeTabIdx).find('a').html());
             }
         }).addClass( "ui-tabs-vertical ui-helper-clearfix" );
         $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
@@ -190,6 +185,6 @@
         }, 200, "easeInExpo", function() {
             // Animation complete.
         });
-
     });
+}
 }(jQuery));
