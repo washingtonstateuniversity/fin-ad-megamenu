@@ -23,17 +23,18 @@ module.exports = function(grunt) {
             maps: {
                 files: [
                     //for deploy
-                    { expand: true, src: ["build/pre_deploy/**/megamenu.min.*"], dest: "deploy", flatten: true, },
+                    { expand: true, src: ["build/pre_deploy/**/megamenu.min.*"], dest: "deploy", flatten: true },
                     //for dev
-                    { expand: true, src: ["src/js/megamenu.js"], dest: "develop", flatten: true, },
+                    { expand: true, src: ["src/js/megamenu.js"], dest: "develop", flatten: true },
                     { expand: true, src: ["build/_precss/megamenu.css"], dest: "develop", flatten: true, },
-                    { expand: true, src: ["src/bootstrap.js"], dest: "develop", flatten: true, },
+                    { expand: true, src: ["src/bootstrap.js"], dest: "develop", flatten: true },
                 ]
             },
             production: {
                 files: [
+                    { expand: true, src: ["src/images/*"], dest: "//facops35/resources/central_FnA_theme/megamenu/images", flatten: true },
                     { expand: true, src: ["data/*"], dest: "//facops35/resources/central_FnA_theme/megamenu" },
-                    { expand: true, src: ["develop/*"], dest: "//facops35/resources/central_FnA_theme/megamenu", flatten: true, },
+                    { expand: true, src: ["develop/*"], dest: "//facops35/resources/central_FnA_theme/megamenu", flatten: true },
                 ]
             }
         },

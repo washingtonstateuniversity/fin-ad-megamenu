@@ -12,21 +12,6 @@
         x = document.getElementsByTagName('script')[0];
         headID.appendChild(s);
     }
-    function param( name , process_url ){
-        var regexS, regex, results;
-        if(typeof(process_url) === 'undefined'){
-            process_url=window.location.href;
-        }
-        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-        regexS = "[\\?&]"+name+"=([^&#]*)";
-        regex = new RegExp( regexS );
-        results = regex.exec( process_url );
-        if( results === null ){
-            return false;
-        }else{
-            return results[1];
-        }
-    }
 
     var _jquery_version = '1.10.2';
 
@@ -39,11 +24,9 @@
         ($("link[src*='http://webcore.fais.wsu.edu/resources/flexwork/flexwork-]").length)?'':'http://webcore.fais.wsu.edu/resources/flexwork/flexwork-light.css'
     ];
 
-
     var loading = null;
     var css_loaded = false;
     (function load_base() {
-        param('foo',window.location.href);
         loading = setTimeout(function(){
             if( (typeof(jQuery) === 'undefined' || (typeof($) === 'undefined' && typeof(jQuery) === 'undefined') || false ===css_loaded  ) ){// || (jQuery().jquery !== _jquery_version || jQuery.fn.jquery !== _jquery_version) ){
                 window.clearTimeout(loading);
