@@ -1,5 +1,5 @@
 /*jshint -W054 */
-(function($){
+(function($,Drop,window){
 
 	/**
 	 * A small templating engine for processing HTML with given data.
@@ -49,24 +49,28 @@
     $.wsu.fais.megamenu = {};
     (function(MM){
         //gotten from the central area with long cache
+        MM.fna_logo = '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 313.26 194.19"><polygon points="95.04 81.19 42.29 81.19 51.8 37.2 108.77 37.2 113.01 13.2 32.42 13.2 0 166.19 24.37 166.19 37.48 105.19 90.52 105.19 95.04 81.19" style="fill:#f4f3ef"/><path d="M345.53,20.33H322l-65.62,117.4c-0.7.83-1.31,1.59-1.88,2.31s-1.08,1.35-1.61,2l-29.71-41.94c4.62-2.47,9-5,13.35-7.42l2.21-1.25a95,95,0,0,0,16.39-11.68A54.45,54.45,0,0,0,266.7,65.37a38.27,38.27,0,0,0,4.46-18.68c0-12-4-21.68-12-28.86S240.66,7.14,227.53,7.14c-15.31,0-27.83,4.51-37.21,13.4s-14.22,20.82-14.22,35.29c0,11.52,3.79,23.88,11.29,36.8-16.19,8.1-28,16.65-35.26,25.43a52.31,52.31,0,0,0-11.94,34.11c0,15,4.57,26.9,13.6,35.48s21,12.85,35.72,12.85a87.34,87.34,0,0,0,31.86-5.56c7.82-3.06,16.85-6.91,26.38-14.18l13.42,20.58H295l-25.42-33.5c4.74-7,18.76-29.43,24.65-41.5H334l5.71,47h24.09Zm-17.17,57.4,3.07,27.6H301.61c11-21.71,18.26-36.17,21.47-42.61L324,60.87c0.75-1.5,1.48-3.06,2.2-4.65C326.73,63.68,327.46,71,328.36,77.73ZM209.12,37.46c4.14-4.28,9.92-6.36,17.67-6.36,5.74,0,9.91,1.45,12.76,4.43s4.29,7.16,4.29,12.63a18.92,18.92,0,0,1-3.24,10.92,40.9,40.9,0,0,1-9.48,9.68c-3.77,2.83-10.63,6.82-20.4,11.89-5.18-8.06-7.81-16.31-7.81-24.57,0-8.1,2.09-14.36,6.2-18.62h0Zm-36,94.83c2-3.88,2.63-4.47,6.4-7.76l0.92-.81c4-3.5,10.52-7.69,19.4-12.46l34,48.06a51.13,51.13,0,0,1-10,4.87c-1.06.4-2.23,0.86-3.66,1.44a51.45,51.45,0,0,1-19.48,3.83c-8.13,0-14.44-2.29-19.29-7a39,39,0,0,1-10.68-19.39C170.06,140.24,170.82,136.81,173.1,132.29Z" transform="translate(-50.58 -7.14)" style="fill:#f4f3ef"/></svg>';
         MM.template = {
-            "container":'<div id="mega" class="mega" data-height="405"><div id="megatail"></div><div id="megatab"><img src="data:image/svg+xml;utf8,%3Csvg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20313.26%20194.19%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23f4f3ef%3B%7D%3C/style%3E%3C/defs%3E%3Ctitle%3EF%26amp%3Bamp%3BA%20logo%3C/title%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2295.04%2081.19%2042.29%2081.19%2051.8%2037.2%20108.77%2037.2%20113.01%2013.2%2032.42%2013.2%200%20166.19%2024.37%20166.19%2037.48%20105.19%2090.52%20105.19%2095.04%2081.19%22/%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M472.87%2C138.4H449.32L383.7%2C255.8c-0.7.83-1.31%2C1.59-1.88%2C2.31s-1.08%2C1.35-1.61%2C2l-29.71-41.94c4.62-2.47%2C9-5%2C13.35-7.42l2.21-1.25a95%2C95%2C0%2C0%2C0%2C16.39-11.68A54.45%2C54.45%2C0%2C0%2C0%2C394%2C183.43a38.27%2C38.27%2C0%2C0%2C0%2C4.46-18.68c0-12-4-21.68-12-28.86S368%2C125.2%2C354.87%2C125.2c-15.31%2C0-27.83%2C4.51-37.21%2C13.4s-14.22%2C20.82-14.22%2C35.29c0%2C11.52%2C3.79%2C23.88%2C11.29%2C36.8-16.19%2C8.1-28%2C16.65-35.26%2C25.43a52.31%2C52.31%2C0%2C0%2C0-11.94%2C34.11c0%2C15%2C4.57%2C26.9%2C13.6%2C35.48s21%2C12.85%2C35.72%2C12.85A87.34%2C87.34%2C0%2C0%2C0%2C348.71%2C313c7.82-3.06%2C16.85-6.91%2C26.38-14.18l13.42%2C20.58h33.83l-25.42-33.5c4.74-7%2C18.76-29.43%2C24.65-41.5h39.8l5.71%2C47h24.09Zm-17.17%2C57.4%2C3.07%2C27.6H428.94c11-21.71%2C18.26-36.17%2C21.47-42.61l0.93-1.85c0.75-1.5%2C1.48-3.06%2C2.2-4.65C454.06%2C181.74%2C454.79%2C189.09%2C455.69%2C195.8ZM336.46%2C155.52c4.14-4.28%2C9.92-6.36%2C17.67-6.36%2C5.74%2C0%2C9.91%2C1.45%2C12.76%2C4.43s4.29%2C7.16%2C4.29%2C12.63a18.92%2C18.92%2C0%2C0%2C1-3.24%2C10.92%2C40.9%2C40.9%2C0%2C0%2C1-9.48%2C9.68c-3.77%2C2.83-10.63%2C6.82-20.4%2C11.89-5.18-8.06-7.81-16.31-7.81-24.57%2C0-8.1%2C2.09-14.36%2C6.2-18.62h0Zm-36%2C94.83c2-3.88%2C2.63-4.47%2C6.4-7.76l0.92-.81c4-3.5%2C10.52-7.69%2C19.4-12.46l34%2C48.06a51.13%2C51.13%2C0%2C0%2C1-10%2C4.87c-1.06.4-2.23%2C0.86-3.66%2C1.44A51.45%2C51.45%2C0%2C0%2C1%2C328%2C287.52c-8.13%2C0-14.44-2.29-19.29-7A39%2C39%2C0%2C0%2C1%2C298%2C261.13C297.39%2C258.3%2C298.15%2C254.88%2C300.44%2C250.35Z%22%20transform%3D%22translate%28-177.91%20-125.2%29%22/%3E%3C/svg%3E"/><i></i></div><div id="megacontent"><% this.header %><% this.tabs_area %></div></div>',
+            "container":'<div id="mega" class="mega" data-height="405"><div id="megatail"></div><% this.opener %><div id="megacontent"><% this.header %><% this.tabs_area %></div></div>',
             "tabs":{
-                "wrapper":"<div id='tabs' class='ui-tabs ui-tabs-vertical flex-row column-at-768'><ul class='ui-tabs-nav hide-below-768'><% this.tabs_menu %></ul><% this.tabs %></div>",
+                "wrapper":"<div id='megatabs' class='ui-tabs-vertical flex-row column-at-768'><ul class='hide-below-768'><% this.tabs_menu %></ul><% this.tabs %></div>",
                 "content":"<div id='tabs-<% this.tab_idx %>' class='full-width-at-768'><% this.tab_content %></div>",
-                "menu_item":"<li><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %>'><% this.menu_tab_name %></a></li>",
+                "menu_item":"<li role='tab' aria-controls='tabs-<% this.menu_tab_idx %>' aria-labelledby='tabs-<% this.menu_tab_idx %>_link'><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %><% this.prefix %>' class='ui-tabs-anchor' role='presentation' id='tabs-<% this.menu_tab_idx %>_link' ><% this.menu_tab_name %></a></li>",
+                "resmenu_item":"<li><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %><% this.prefix %>'><% this.menu_tab_name %></a></li>",
                 "res_menu_wrap":"<div id='res_wrap'><span id='res_selected'></span><span class='dropdown-menu'><ul class='res-menu-wrap'><% this.res_tabs_menu %></ul></span></div>",
             },
             "header":{
                 "container":"<div id='mega_header' class='flex-row column-at-768'><h2>Finance and Administration</h2><ul id='mega_crumb'><% this.crumbs %></ul></div>",
                 "item":"<li><a href='<% this.crumb_url %>' data-relation='<% this.data %>'><% this.crumb_name %></a></li>",
-            }
+            },
+            "opener":'<div id="mm_opener"><span>'+MM.fna_logo+'</span><i></i></div>'
         };
 
         MM._html = "";
         MM._json = false;
         MM.mega_height=0;
         MM._Drop=null;
+        MM._tabs=null;
 
         MM.init = function (){
             MM.load_content(MM.start);
@@ -79,7 +83,6 @@
             }).done(function(data){
                 MM._json = data[0];
                 callback();
-
             });
         };
 
@@ -93,6 +96,7 @@
             }
         };
         MM.close_menu = function (){
+            $(window).trigger("resize");
             $("#mega").animate({
             top: "-"+MM.mega_height-50,
             }, 200, "easeInExpo", function() {
@@ -100,11 +104,11 @@
             });
             $("#mega").removeClass("open");
         };
-        MM.ready_drops = function(){
+        MM.ready_drops = (function(){
             MM._Drop = Drop.createContext({
                 classPrefix: "drop"
             });
-        };
+        }());
         MM.setupDrops = function ( target ) {
             var $dropTrigger, $target, content, drop, openOn, position, targetAttachment, $is_vertical;
             $dropTrigger = target;
@@ -131,34 +135,50 @@
         };
 
         MM.setup_inner_menu_tabs = function(){
-            $( "#tabs" ).tabs({
-                activate: function( ){//event, ui ) {
-                    var activeTabIdx = $('#tabs').tabs('option','active');
-                    $(".res-menu-wrap li.active").removeClass('active');
-                    $(".res-menu-wrap li").eq(activeTabIdx).addClass("active");
-                    $("#res_selected").html($(".res-menu-wrap li").eq(activeTabIdx).find('a').html());
-                }
-            }).addClass( "ui-tabs-vertical ui-helper-clearfix" );
-            $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+            console.log("tabed it");
+            console.log(MM._tabs);
+            if( null === MM._tabs){
+                MM._tabs = $( "#megatabs" ).tabs({
+                    activate: function( ){//event, ui ) {
+                        var activeTabIdx = $('#megatabs').tabs('option','active');
+                        $(".res-menu-wrap li.active").removeClass('active');
+                        $(".res-menu-wrap li").eq(activeTabIdx).addClass("active");
+                        $("#res_selected").html($(".res-menu-wrap li").eq(activeTabIdx).find('a').html());
+                    }
+                }).addClass( "ui-tabs-vertical ui-helper-clearfix" );
+                $( "#megatabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+            }
         };
 
         MM.start = function (){
             //gotten from the central location but lick a 5 min cache
             if( !$("#mega").length ){
                 MM._html = $.runTemplate(MM.template.container, {
+                    "opener":MM.template.opener,
                     "tabs_area":function(){
-                        var menuhtml = "";
+                        var menuhtml = "",res_menuhtml="";
                         var tabhtml = "";
                         var area_html = "";
                         var count = 0;
-                        $.each( MM._json.service_areas, function( name, area ){
+
+
+                        $.each( MM._json.service_areas, function( name ){//, area ){
                             var idx = name.replace(/[^a-zA-Z0-9-_]/g, '-');
-                            tabhtml += $.runTemplate(MM.template.tabs.content, { tab_idx:idx, tab_content:area.content  });
-                            menuhtml += $.runTemplate(MM.template.tabs.menu_item, { count:count, menu_tab_idx:idx, menu_tab_name:name });
+                            res_menuhtml += $.runTemplate(MM.template.tabs.resmenu_item, { count:count, menu_tab_idx:idx.toLowerCase(), menu_tab_name:name, prefix:"_res" });
                             count++;
                         });
-                        area_html += $.runTemplate(MM.template.tabs.res_menu_wrap, { res_tabs_menu:menuhtml });
+                        area_html += $.runTemplate(MM.template.tabs.res_menu_wrap, { res_tabs_menu:res_menuhtml });
+
+                        $.each( MM._json.service_areas, function( name, area ){
+                            var idx = name.replace(/[^a-zA-Z0-9-_]/g, '-');
+                            tabhtml += $.runTemplate(MM.template.tabs.content, { tab_idx:idx.toLowerCase(), tab_content:area.content  });
+                            menuhtml += $.runTemplate(MM.template.tabs.menu_item, { count:count, menu_tab_idx:idx.toLowerCase(), menu_tab_name:name, prefix:""  });
+                            count++;
+                        });
                         area_html += $.runTemplate(MM.template.tabs.wrapper, { tabs_menu:menuhtml, tabs:tabhtml });
+
+
+
                         return area_html;
                     },
                     "header":function(){
@@ -168,10 +188,14 @@
                                 var parents = [];
 
                                 var list = [];
+                                var name = $('head title').text();
+                                if("undefined" !== typeof window.fais_site_object && "undefined" !== typeof window.fais_site_object.local ){
+                                    name = window.fais_site_object.local.title;
+                                }
 
                                 list.push({
                                     _url : "/",
-                                    _name : "undefined" !== window.fais ? window.fais.local.title : $('head title').text(),
+                                    _name : name,
                                     _data:"self"
                                 });
 
@@ -186,7 +210,7 @@
                                 }
                                 list.push({
                                     _url : "https://baf.wsu.edu",
-                                    _name : "F&A",
+                                    _name : MM.fna_logo,
                                     _data:"root"
                                 });
 
@@ -202,17 +226,21 @@
                     },
                 });
 
-                $('#binder').prepend(MM._html);
+
 
 
                 $(document).ready(function(){
+                    if( !$("#mega.setup").length ){
+                        $('#binder').prepend(MM._html);
+                    }
+
                     MM.setup_inner_menu_tabs();
 
                     MM.mega_height=$("#mega").height();
 
                     $("#mega").width($('#binder').width());
 
-                    MM.ready_drops();
+
                     var res_menu = MM.setupDrops( $( "#res_selected" ) );
                     res_menu.on("open",function(){
                         $("#res_selected").on("click",function(){
@@ -222,7 +250,7 @@
                             e.stopPropagation();
                             e.preventDefault();
                             var idx = $(this).data("idx");
-                            $( "#tabs" ).tabs( "option", "active", idx );
+                            MM._tabs.tabs( "option", "active", idx );
                             $("#res_selected").html($("this").html());
                             $(window).trigger("resize");
                             //$(".res-menu-wrap").hide();
@@ -230,10 +258,7 @@
                         });
                     });
 
-
-
-                    $("#megatab").on("click",function(){
-                        MM.setup_inner_menu_tabs();
+                    $("#mm_opener").on("click",function(){
                         if( ! $("#mega").is(".open") ){
                             $("#mega").addClass("open");
                             $("#mega").animate({
@@ -246,15 +271,15 @@
                         }
                     });
 
-                    var int_idx = $('[aria-expanded="true"]').index($('#tabs'))+1; //+1 as there is a ul then
+                    var int_idx = $('[aria-expanded="true"]').index($('#megatabs'))+1; //+1 as there is a ul then
                     $(".res-menu-wrap li:eq("+int_idx+")").addClass("active");
                     $("#res_selected").html($(".res-menu-wrap li:eq("+int_idx+") a").html());
                     $(document).on("click",function(event) {
                         if(!$(event.target).closest('.res-menu-wrap').length && !$(event.target).is('#res_selected')){
                             //$(".res-menu-wrap").hide();
-                        res_menu.close();
+                            res_menu.close();
                         }
-                        if(!$(event.target).closest('#mega').length && !$(event.target).is('#megatab')){
+                        if(!$(event.target).closest('#mega').length && !$(event.target).is('#mm_opener')){
                             MM.close_menu();
                         }
                     });
@@ -269,12 +294,13 @@
                     }, 200, "easeInExpo", function() {
                         // Animation complete.
                     });
+                    $("#mega").addClass("setup");
                 });
             }
         };
 
     }($.wsu.fais.megamenu));
-
-    $.wsu.fais.megamenu.init();
-
-}(jQuery));
+	if( !$("#mega.setup").length ){
+		$.wsu.fais.megamenu.init();
+	}
+}(jQuery,Drop,window));

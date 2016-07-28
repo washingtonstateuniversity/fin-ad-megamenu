@@ -10,7 +10,7 @@ body{position: relative;}
     background:#494949;
     /*height:376px;*/
     //height: calc(attr(data-height) + 50px);
-    min-height:392px;
+    //min-height:392px;
     z-index:99999;
     top:-405px;
     padding-top:50px;
@@ -30,7 +30,7 @@ body{position: relative;}
     border-left:1px solid #444;
     border-right:1px solid #444;
 
-    background: #494949 url('https://dl.dropboxusercontent.com/s/bx9tt289pxw1tdo/mega-content-bk.png') center center repeat;
+    background: #494949 url('http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/mega-content-bk.png') center center repeat;
     padding: 10px;
 }
 #mega.open{
@@ -46,10 +46,20 @@ body{position: relative;}
     right: 0px;
 	background: rgba(51, 51, 51, 1);
 }
-#megatab{
+a svg#Layer_1 {
+    height: 1em;
+    margin-left: 0.4em;
+    width:2em;
+}
+a svg#Layer_1 path, a svg#Layer_1 polygon {
+    fill: #000000 !important;
+}
+
+
+#mm_opener{
     width: 175px;
     height: 74px;
-    background: rgba(51, 51, 51, 0) url('https://dl.dropboxusercontent.com/s/ojnbd8t19wak013/megatab-bk.png') center center repeat;
+    background: rgba(51, 51, 51, 0) url('http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/megatab-bk.png') center center repeat;
     position: absolute;
     bottom: -63px;
     right: 0px;
@@ -60,12 +70,19 @@ body{position: relative;}
     color: #fff;
 }
 
-#megatab img {
-    padding-top: 19px;
-    padding-left: 14px;
-    width:3.6em;
+#mm_opener span {
+    padding-top: 0px;
+    margin-left: 0.6em;
+    width: 3.1em;
+    height: 2em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 0.8em;
+    background-color: transparent;
 }
-#megatab i,#megatab i:before,#megatab i:after{
+#mm_opener i,#mm_opener i:before,#mm_opener i:after{
     width: 4px;
     height: 34px;
     box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
@@ -74,14 +91,14 @@ body{position: relative;}
     top: 19px;
     right: 22px;
 }
-#megatab i:before,#megatab i:after{
+#mm_opener i:before,#mm_opener i:after{
     content:"";
 }
 
-#megatab i:before{right: 6px;
+#mm_opener i:before{right: 6px;
     top: 0px;
 }
-#megatab i:after{right: 12px;
+#mm_opener i:after{right: 12px;
     top: 0;
 }
 

@@ -12,7 +12,7 @@
             x = document.getElementsByTagName('script')[0];
             headID.appendChild(s);
         }
-    if( "undefined" !== $.wsu || "undefined" !== $.wsu.fais || "undefined" !== $.wsu.fais.megamenu ){
+    if( "undefined" !== window.jQuery.wsu || "undefined" !== window.jQuery.wsu.fais || "undefined" !== window.jQuery.wsu.fais.megamenu ){
         var _jquery_version = '1.10.2';
 
         if(  (typeof(jQuery) === 'undefined' || (typeof($) === 'undefined' && typeof(jQuery) === 'undefined') ) ){// || (jQuery().jquery !== _jquery_version || jQuery.fn.jquery !== _jquery_version) ){
@@ -44,6 +44,16 @@
                     load_base();
                 }else{
                     var scriptArray = [
+                        {
+                            src:"http://webcore.fais.wsu.edu/resources/flexwork/extra/tether.min.js",
+                            exc:function(){
+                            }
+                        },
+                        {
+                            src:"http://webcore.fais.wsu.edu/resources/flexwork/extra/drop.min.js",
+                            exc:function(){
+                            }
+                        },
                         {
                             src:"http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/megamenu.js",
                             exc:function(){
