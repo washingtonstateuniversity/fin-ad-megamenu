@@ -20,8 +20,8 @@
         }
 
         var css_dependants = [
-            "http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/megamenu.css",
-            ($("link[src*='http://webcore.fais.wsu.edu/resources/flexwork/flexwork-]").length)?'':'http://webcore.fais.wsu.edu/resources/flexwork/flexwork-light.css'
+            "https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/megamenu.css",
+            ($("link[src*='https://webcore.fais.wsu.edu/resources/flexwork/flexwork-]").length)?'':'https://webcore.fais.wsu.edu/resources/flexwork/flexwork-light.css'
         ];
 
         var loading = null;
@@ -45,17 +45,17 @@
                 }else{
                     var scriptArray = [
                         {
-                            src:"http://webcore.fais.wsu.edu/resources/flexwork/extra/tether.min.js",
+                            src:"https://webcore.fais.wsu.edu/resources/flexwork/extra/tether.min.js",
                             exc:function(){
                             }
                         },
                         {
-                            src:"http://webcore.fais.wsu.edu/resources/flexwork/extra/drop.min.js",
+                            src:"https://webcore.fais.wsu.edu/resources/flexwork/extra/drop.min.js",
                             exc:function(){
                             }
                         },
                         {
-                            src:"http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/megamenu.js",
+                            src:"https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/megamenu.js",
                             exc:function(){
                             }
                         }
