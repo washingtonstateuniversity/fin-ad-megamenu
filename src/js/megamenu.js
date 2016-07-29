@@ -77,7 +77,7 @@
         };
         MM.load_content = function(callback){
             $.ajax({
-                url:"http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/data/static.txt",
+                url:"https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/data/static.txt",
                 dataType:"jsonp",
                 jsonpCallback:"static"
             }).done(function(data){
@@ -300,7 +300,8 @@
         };
 
     }($.wsu.fais.megamenu));
-	if( !$("#mega.setup").length ){
+
+	if( !$("#mega.setup").length && window.self === window.top){
 		$.wsu.fais.megamenu.init();
 	}
 }(jQuery,Drop,window));
