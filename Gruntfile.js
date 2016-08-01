@@ -7,7 +7,7 @@ module.exports = function(grunt) {
                 "src/**/*",
                 "data/**/*",
             ],
-            tasks: [ "sass", "jshint", "uglify" , "autoprefixer", "stylelint", "cssmin",   "copy" ]
+            tasks: [ "sass", "jshint", "uglify" , "autoprefixer", "stylelint", "cssmin", "copy:maps", "copy:dev" ]
         },
         sass: {
             options: {
@@ -28,6 +28,13 @@ module.exports = function(grunt) {
                     { expand: true, src: ["src/js/megamenu.js"], dest: "develop", flatten: true },
                     { expand: true, src: ["build/_precss/megamenu.css"], dest: "develop", flatten: true, },
                     { expand: true, src: ["src/bootstrap.js"], dest: "develop", flatten: true },
+                ]
+            },
+            dev: {
+                files: [
+                    { expand: true, src: ["src/images/*"], dest: "//facops35/resources/central_FnA_theme/dev/megamenu/images", flatten: true },
+                    { expand: true, src: ["data/*"], dest: "//facops35/resources/central_FnA_theme/dev/megamenu" },
+                    { expand: true, src: ["develop/*"], dest: "//facops35/resources/central_FnA_theme/dev/megamenu", flatten: true },
                 ]
             },
             production: {
@@ -163,7 +170,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks( "grunt-autoprefixer" );
     grunt.loadNpmTasks( "grunt-sass" );
     // Default task(s).
-    grunt.registerTask("start", ["watch"]);
-    grunt.registerTask("default", ["sass", "jshint", "uglify" ,"autoprefixer", "stylelint", "cssmin",  "copy" ]);
+    grunt.registerTask("default", ["sass", "jshint", "uglify" ,"autoprefixer", "stylelint", "cssmin", "copy:maps", "copy:dev"  ]);
+    grunt.registerTask("deploy", ["sass", "jshint", "uglify" ,"autoprefixer", "stylelint", "cssmin", "copy"  ]);
 
 };

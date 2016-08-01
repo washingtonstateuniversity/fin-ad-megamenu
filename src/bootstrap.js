@@ -2,6 +2,10 @@
 * WSU F&A MEGAMENU BOOTSCRIPT | Version <%= pkg.version %> | Copyright (c) 2016+ Jeremy Bass | Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 */
 (function($){
+    var dev = "";
+    if( -1 !== window.location.host.indexOf("wp.wsu.dev") ){
+        dev = "dev/";
+    }
         function async_load_js(url){
             var headID, s, x;
             headID = document.getElementsByTagName("head")[0];
@@ -20,7 +24,7 @@
         }
 
         var css_dependants = [
-            "https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/megamenu.css",
+            "https://webcore.fais.wsu.edu/resources/central_FnA_theme/"+dev+"megamenu/megamenu.css",
             ($("link[src*='https://webcore.fais.wsu.edu/resources/flexwork/flexwork-]").length)?'':'https://webcore.fais.wsu.edu/resources/flexwork/flexwork-light.css'
         ];
 
@@ -55,7 +59,7 @@
                             }
                         },
                         {
-                            src:"https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/megamenu.js",
+                            src:"https://webcore.fais.wsu.edu/resources/central_FnA_theme/"+dev+"megamenu/megamenu.js",
                             exc:function(){
                             }
                         }
