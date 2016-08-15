@@ -163,7 +163,7 @@
             }).done(function(data){
                 MM._json = data;
                 console.log("----------------set _json---");
-            console.log(MM._json);
+                console.log(MM._json);
                 callback();
             });
         };
@@ -173,14 +173,14 @@
 
                 var html = $("<div>");
                 html.html(page_object.content.rendered);
-html = html.find("#content_area").html();
+                html = html.find("#content_area").html();
                 MM.service_areas[""+page_object.slug]={
                     name:page_object.title.rendered,
                     content:html,
                 };
             });
 
-console.log("----------------set service_areas---");
+            console.log("----------------set service_areas---");
             console.log(MM.service_areas);
 
             callback();

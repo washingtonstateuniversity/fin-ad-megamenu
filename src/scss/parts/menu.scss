@@ -152,6 +152,11 @@ a svg#Layer_1 path, a svg#Layer_1 polygon {
     font-size: 1.3em;
 }
 
+#mega .ui-tabs-panel ol, #mega .ui-tabs-panel ul {
+    padding-left: 1em;
+}
+
+
 #mega .service_areas{
     padding-right: 1em;
 }
@@ -257,7 +262,6 @@ ul.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all
 	position: relative;
 	width: 100%;/**/
 	box-sizing: border-box;
-	display: inline-block;
 }
 li.ui-state-default.ui-corner-left a:hover, .ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
 background: none;
@@ -398,6 +402,32 @@ font-size: 2.1em;
 #mega  a[href^="mailto:"] {
     padding: 0px 5px;
     margin: 0px;
-    /* line-height: 20px; */
     height: 28px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.leadership_bio {
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    text-align: center;
+}
+.leadership_bio p {
+    padding: 0px;
+    margin: 0px;
+    margin-bottom:5px;
+    font-size: 14px;
+    line-height:15px;
+    max-height:174px;
+}
+.leadership_bio h2{
+    padding: 0px;
+    margin: 0px;
+    margin-bottom:5px;
+    text-align: center;
+    line-height:25px;
+}
+.leadership_bio p:last-child {
+    margin: 0px;
 }
