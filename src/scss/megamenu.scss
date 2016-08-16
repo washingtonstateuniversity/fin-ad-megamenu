@@ -1,6 +1,33 @@
 @charset "UTF-8";
 
 @import 'vars.scss';
+body{position: relative;}
+ *{
+    box-sizing: border-box;
+}
+//put these overrides in seperate file
+.ui-widget {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 100%;
+}
 
-@import 'parts/menu.scss';
-@import 'parts/menu_content.scss';
+#mega * {font-family: 'Open Sans', 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif ;}
+
+
+#mega {
+    position:fixed;
+    width:100%;
+    background:#494949;
+    z-index:99999;
+    top:-405px;
+    padding-top:50px;
+
+    .admin-bar &{margin-top:32px;}
+    &{
+        @import 'parts/menu.scss';
+    }
+    &{
+        @import 'parts/menu_content.scss';
+    }
+}
+

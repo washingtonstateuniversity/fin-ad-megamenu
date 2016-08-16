@@ -1,25 +1,15 @@
 
 
-body{position: relative;}
-#mega *{
-    box-sizing: border-box;
+a {
+    color: #337ab7;
+    text-decoration: none;
 }
-#mega{
-    position:fixed;
-    width:100%;
-    background:#494949;
-    /*height:376px;*/
-    //height: calc(attr(data-height) + 50px);
-    //min-height:392px;
-    z-index:99999;
-    top:-405px;
-    padding-top:50px;
-}
-#mega .grid-part{
+
+.grid-part{
     transition:none;
 }
 
-.admin-bar #mega{margin-top:32px;}
+
 
 #megacontent{
     overflow: hidden;
@@ -36,10 +26,10 @@ body{position: relative;}
     background: #494949 url('https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/mega-content-bk.png') center center repeat;
     padding: 10px;
 }
-#mega.open{
+.open{
     box-shadow: rgb(0, 0, 0) 0px -2px 29px;
 }
-#mega.open #megacontent{
+.open #megacontent{
     box-shadow: rgb(0, 0, 0) 0px 7px 29px;
 }
 #megatail{width: 100%;
@@ -105,11 +95,11 @@ a svg#Layer_1 path, a svg#Layer_1 polygon {
     top: 0;
 }
 
-#mega_header{
+_header{
     min-height: 35px;
 }
 
-#mega_header h2 {
+_header h2 {
     color: #fff;
     font-weight: 500;
     font-style: italic;
@@ -143,28 +133,28 @@ a svg#Layer_1 path, a svg#Layer_1 polygon {
 }
 
 
-#mega ol, #mega ul {
+ ol,  ul {
     padding: 0;
 }
 
-#mega .ui-tabs-panel ol, #mega .ui-tabs-panel ul, #mesga .ui-tabs-panel ol a, #mega .ui-tabs-panel ul a {
+ .ui-tabs-panel ol,  .ui-tabs-panel ul, #mesga .ui-tabs-panel ol a,  .ui-tabs-panel ul a {
     font-weight: 600;
     font-size: 1.3em;
 }
 
-#mega .ui-tabs-panel ol, #mega .ui-tabs-panel ul {
+ .ui-tabs-panel ol,  .ui-tabs-panel ul {
     padding-left: 1em;
 }
 
 
-#mega .service_areas{
+ .service_areas{
     padding-right: 1em;
 }
-#mega .highlights{
+ .highlights{
     position: relative;
     padding-left: 1em;
 }
-#mega .highlights:before{
+ .highlights:before{
     width: 4px;
     height: 100%;
     box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
@@ -193,35 +183,35 @@ a svg#Layer_1 path, a svg#Layer_1 polygon {
 }
 
 
-.mega .ui-widget-content {
+.ui-widget-content {
     background:none;
     border:none;
 }
 
-.mega .ui-widget-content .ui-widget-content {
+.ui-widget-content .ui-widget-content {
     box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
     border: 1px solid #f1f1f1;
     background: rgba(255, 255, 255, 0.61) url('https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/content-bk.jpg') center center repeat;
 }
-.mega .ui-tabs-vertical {
+.ui-tabs-vertical {
     width: 100%;
 }
-.mega .ui-tabs-vertical .ui-tabs-nav {
+.ui-tabs-vertical .ui-tabs-nav {
     padding:0;
     float: left;
     width: 300px;
     box-sizing: border-box;
     z-index: 2;
 }
-.mega .ui-tabs-vertical .ui-tabs-nav li {
+.ui-tabs-vertical .ui-tabs-nav li {
     width: 100%;
     white-space: normal;
     line-height: 1.8em;
 }
-.mega .ui-tabs-vertical .ui-tabs-nav li a {
+.ui-tabs-vertical .ui-tabs-nav li a {
     display:block;
 }
-.mega .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
     padding-bottom: 0;
     padding-right: 0.3em;
     width: calc( 100% + 4px );
@@ -231,7 +221,7 @@ a svg#Layer_1 path, a svg#Layer_1 polygon {
     background: rgba(255, 255, 255, 0.61) url('https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/content-bk.jpg') center center repeat;
 }
 
-.mega .ui-tabs-vertical .ui-tabs-panel {
+.ui-tabs-vertical .ui-tabs-panel {
 padding: 1em;
     float: right;
     width: calc(100% - 300px);
@@ -242,7 +232,7 @@ padding: 1em;
     z-index: 1;
 }
 
-.mega li.ui-state-default.ui-corner-left {
+li.ui-state-default.ui-corner-left {
     background: none;
     border: none;
     color: #fff;
@@ -253,7 +243,7 @@ ul.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all
     border: none;
 }
 
-.mega .ui-tabs-vertical .ui-tabs-nav li a {
+.ui-tabs-vertical .ui-tabs-nav li a {
 	color: #fff;
 	font-weight: 900;
 	text-shadow: 1px 1px 1px #000;
@@ -283,17 +273,17 @@ background: none;
     color: #131313;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.26);
 }
-.mega .ui-tabs-vertical .ui-tabs-nav li a:focus, .mega .ui-tabs-vertical .ui-tabs-nav li a:hover {
+.ui-tabs-vertical .ui-tabs-nav li a:focus, .ui-tabs-vertical .ui-tabs-nav li a:hover {
     color: #131313;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.26);
     text-decoration: none;
 }
-.mega .ui-tabs-vertical .ui-tabs-nav li a:focus {
+.ui-tabs-vertical .ui-tabs-nav li a:focus {
     outline: none;
     outline: -webkit-focus-ring-color auto 0;
     outline-offset: 0;
 }
-.mega .ui-tabs-vertical .ui-tabs-nav li a:before {
+.ui-tabs-vertical .ui-tabs-nav li a:before {
     width: 100%;/**/
     height: 4px;
     box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
@@ -377,13 +367,13 @@ font-size: 2.1em;
 #res_selected{display:none;}
 
 @media only screen and (max-width: 768px){
-    .mega .ui-tabs-vertical .ui-tabs-nav.full-width-at-768,
-    .mega .ui-tabs-vertical .ui-tabs-panel.full-width-at-768 {
+    .ui-tabs-vertical .ui-tabs-nav.full-width-at-768,
+    .ui-tabs-vertical .ui-tabs-panel.full-width-at-768 {
         width: 100%;
     }
     #res_selected
     {display:block;}//.res-menu-wrap.active
-    #mega .highlights:before{display:none;}
+     .highlights:before{display:none;}
     .drop-element.drop-open {
         display: block;
         width: calc(100% - 22px);
@@ -395,11 +385,11 @@ font-size: 2.1em;
 }
 
 
-#mega  a[href^="mailto:"]:before {
+  a[href^="mailto:"]:before {
     font-size: 13px;
 }
 
-#mega  a[href^="mailto:"] {
+  a[href^="mailto:"] {
     padding: 0px 5px;
     margin: 0px;
     height: 28px;
