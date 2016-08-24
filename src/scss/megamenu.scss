@@ -13,6 +13,15 @@ body{position: relative;}
 
 #mega * {font-family: 'Open Sans', 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif ;}
 
+_:-ms-fullscreen,
+:root #mega .flex-row img,
+:root #mega .flex-colmun img
+{
+    flex: none;
+    min-height: 1px;
+}
+
+
 
 #mega {
     position:fixed;

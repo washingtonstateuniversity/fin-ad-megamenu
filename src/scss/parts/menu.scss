@@ -22,8 +22,8 @@ a {
     border-bottom:1px solid #444;
     border-left:1px solid #444;
     border-right:1px solid #444;
-
-    background: #494949 url('https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/mega-content-bk.png') center center repeat;
+    background:#82898e;
+    //background: #494949 url('https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/mega-content-bk.png') center center repeat;
     padding: 10px;
 }
 .open{
@@ -191,7 +191,8 @@ _header h2 {
 .ui-widget-content .ui-widget-content {
     box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
     border: 1px solid #f1f1f1;
-    background: rgba(255, 255, 255, 0.61) url('https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/content-bk.jpg') center center repeat;
+    background:#cdcec9;
+    //background: rgba(255, 255, 255, 0.61) url('https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/content-bk.jpg') center center repeat;
 }
 .ui-tabs-vertical {
     width: 100%;
@@ -218,7 +219,8 @@ _header h2 {
     border-top: 1px solid #fff;
     /* border-right-width: 1px; */
     /* border-right: none; */
-    background: rgba(255, 255, 255, 0.61) url('https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/content-bk.jpg') center center repeat;
+    background:#cdcec9;
+    //background: rgba(255, 255, 255, 0.61) url('https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/content-bk.jpg') center center repeat;
 }
 
 .ui-tabs-vertical .ui-tabs-panel {
@@ -409,8 +411,10 @@ font-size: 2.1em;
     margin-bottom:5px;
     font-size: 14px;
     line-height:15px;
-    max-height:174px;
+    /*max-height:174px;*/
 }
+
+
 .leadership_bio h2{
     padding: 0px;
     margin: 0px;
