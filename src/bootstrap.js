@@ -24,9 +24,11 @@
         }
 
         var css_dependants = [
-            "https://webcore.fais.wsu.edu/resources/central_FnA_theme/"+dev+"megamenu/megamenu.css",
-            ($("link[src*='https://webcore.fais.wsu.edu/resources/flexwork/flexwork-]").length)?'':'https://webcore.fais.wsu.edu/resources/flexwork/flexwork-light.css'
+            "https://webcore.fais.wsu.edu/resources/central_FnA_theme/"+dev+"megamenu/megamenu.css"
         ];
+        if( !$("link[href*='/resources/flexwork/flexwork-']").length ){
+            css_dependants.push('https://webcore.fais.wsu.edu/resources/flexwork/flexwork-light.css');
+        }
 
         var loading = null;
         var css_loaded = false;
@@ -36,7 +38,7 @@
                     window.clearTimeout(loading);
                     loading = null;
                     for ( var i = 0; i < css_dependants.length; i++ ) {
-                        if ( !$("link[href*='"+css_dependants[i]+"]").length  ) {
+                        if ( !$("link[href*='"+css_dependants[i]+"']").length  ) {
                             var stylesheet = document.createElement('link');
                             stylesheet.rel ="stylesheet";
                             stylesheet.href = css_dependants[i];
@@ -65,7 +67,7 @@
                         }
                     ];
                     $.each(scriptArray, function(idx,script){
-                        if ( !$("script[src*='"+script.src+"]").length  ) {
+                        if ( !$("script[src*='"+script.src+"']").length  ) {
                             $.ajax({
                                 type:"GET",
                                 dataType:"script",

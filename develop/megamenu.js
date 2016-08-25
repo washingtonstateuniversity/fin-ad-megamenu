@@ -139,8 +139,8 @@
         };
 
         MM.setup_inner_menu_tabs = function(){
-            console.log("tabed it");
-            console.log(MM._tabs);
+            //console.log("tabed it");
+            //console.log(MM._tabs);
             if( null === MM._tabs){
                 MM._tabs = $( "#megatabs" ).tabs({
                     activate: function( ){//event, ui ) {
@@ -162,8 +162,8 @@
                 jsonpCallback:"mega"
             }).done(function(data){
                 MM._json = data;
-                console.log("----------------set _json---");
-                console.log(MM._json);
+                //console.log("----------------set _json---");
+                //console.log(MM._json);
                 callback();
             });
         };
@@ -180,8 +180,8 @@
                 };
             });
 
-            console.log("----------------set service_areas---");
-            console.log(MM.service_areas);
+            //console.log("----------------set service_areas---");
+            //console.log(MM.service_areas);
 
             callback();
         };

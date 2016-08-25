@@ -11,6 +11,13 @@ body {
 #mega * {
   font-family: 'Open Sans', 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif; }
 
+_:-ms-fullscreen,
+:root #mega .flex-row img,
+:root #mega .flex-colmun img {
+  -ms-flex: none;
+      flex: none;
+  min-height: 1px; }
+
 #mega {
   position: fixed;
   width: 100%;
@@ -37,7 +44,7 @@ body {
     border-bottom: 1px solid #444;
     border-left: 1px solid #444;
     border-right: 1px solid #444;
-    background: #494949 url("https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/mega-content-bk.png") center center repeat;
+    background: #82898e;
     padding: 10px; }
   #mega .open {
     box-shadow: black 0px -2px 29px; }
@@ -161,7 +168,7 @@ body {
   #mega .ui-widget-content .ui-widget-content {
     box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
     border: 1px solid #f1f1f1;
-    background: rgba(255, 255, 255, 0.61) url("https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/content-bk.jpg") center center repeat; }
+    background: #cdcec9; }
   #mega .ui-tabs-vertical {
     width: 100%; }
   #mega .ui-tabs-vertical .ui-tabs-nav {
@@ -183,7 +190,7 @@ body {
     border-top: 1px solid #fff;
     /* border-right-width: 1px; */
     /* border-right: none; */
-    background: rgba(255, 255, 255, 0.61) url("https://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/content-bk.jpg") center center repeat; }
+    background: #cdcec9; }
   #mega .ui-tabs-vertical .ui-tabs-panel {
     padding: 1em;
     float: right;
@@ -340,7 +347,7 @@ body {
     margin-bottom: 5px;
     font-size: 14px;
     line-height: 15px;
-    max-height: 174px; }
+    /*max-height:174px;*/ }
   #mega .leadership_bio h2 {
     padding: 0px;
     margin: 0px;
@@ -349,3 +356,7 @@ body {
     line-height: 25px; }
   #mega .leadership_bio p:last-child {
     margin: 0px; }
+
+@media (max-width: 989px) {
+  body.admin-bar #mega {
+    margin-top: 1px; } }

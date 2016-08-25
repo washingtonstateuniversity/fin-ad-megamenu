@@ -40,3 +40,9 @@ _:-ms-fullscreen,
     }
 }
 
+@media (max-width: 989px) {
+
+	body.admin-bar #mega {
+		margin-top: 1px;
+	}
+}
