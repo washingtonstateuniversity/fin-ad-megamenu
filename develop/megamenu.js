@@ -54,7 +54,7 @@
             "container":'<div id="mega" class="mega" data-height="405"><div id="megatail"></div><% this.opener %><div id="megacontent"><% this.header %><% this.tabs_area %></div></div>',
             "tabs":{
                 "wrapper":"<div id='megatabs' class='ui-tabs-vertical flex-row column-at-768'><ul class='hide-below-768'><% this.tabs_menu %></ul><% this.tabs %></div>",
-                "content":"<div id='tabs-<% this.tab_idx %>' class='full-width-at-768'><% this.tab_content %></div>",
+                "content":"<div id='tabs-<% this.tab_idx %>' class='full-width-at-768' style='display:none;'><% this.tab_content %></div>",
                 "menu_item":"<li role='tab' aria-controls='tabs-<% this.menu_tab_idx %>' aria-labelledby='tabs-<% this.menu_tab_idx %>_link'><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %><% this.prefix %>' class='ui-tabs-anchor' role='presentation' id='tabs-<% this.menu_tab_idx %>_link' ><% this.menu_tab_name %></a></li>",
                 "resmenu_item":"<li><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %><% this.prefix %>'><% this.menu_tab_name %></a></li>",
                 "res_menu_wrap":"<div id='res_wrap'><span id='res_selected'></span><span class='dropdown-menu'><ul class='res-menu-wrap'><% this.res_tabs_menu %></ul></span></div>",
@@ -273,6 +273,7 @@
 
                     var res_menu = MM.setupDrops( $( "#res_selected" ) );
                     res_menu.on("open",function(){
+                        $(".res-menu-wrap").width($('#res_wrap').width());
                         $("#res_selected").on("click",function(){
                             //$(".res-menu-wrap").show();
                         });
@@ -293,7 +294,7 @@
                             $("#mega").addClass("open");
                             $("#mega").animate({
                                 top: "-50",
-                            }, 500, "easeOutBack", function() {
+                            }, 750, "easeInOutQuint", function() {
                                 // Animation complete.
                             });
                         }else{
@@ -325,6 +326,7 @@
                                 // Animation complete.
                             });
                         }else{
+                            $(".res-menu-wrap").width($('#res_wrap').width());
                             MM.set_menu_size();
                             $("#mega").css("top","-"+MM.mega_height-50);
                             setTimeout(function(){MM.set_menu_size();$("#mega").css("top","-"+MM.mega_height-50);},100);
