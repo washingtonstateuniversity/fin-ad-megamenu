@@ -202,11 +202,13 @@ a svg#Layer_1 path, a svg#Layer_1 polygon {
     width: 300px;
     box-sizing: border-box;
     z-index: 2;
+    margin: 0;
 }
 .ui-tabs-vertical .ui-tabs-nav li {
     width: 100%;
     white-space: normal;
     line-height: 1.8em;
+    font-size: 10px;
 }
 .ui-tabs-vertical .ui-tabs-nav li a {
     display:block;
@@ -313,16 +315,17 @@ background: none;
     }
 }
 
-  a[href^="mailto:"]:before {
+a[href^="mailto:"]:before {
     font-size: 13px;
 }
 
-  a[href^="mailto:"] {
-    padding: 0px 5px;
-    margin: 0px;
-    height: 28px;
+a[href^="mailto:"] {
+    padding: 0 6%;
+    margin: 1.4px .15em 0 .25em;
+    //height: 11.5px;
     text-overflow: ellipsis;
     white-space: nowrap;
+    line-height: 1.9em;
 }
 
 .leadership_bio {

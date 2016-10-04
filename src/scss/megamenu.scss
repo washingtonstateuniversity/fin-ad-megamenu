@@ -120,3 +120,29 @@ _:-ms-fullscreen,
 }
 
 #res_selected{display:none;}
+
+
+@media screen and (max-width: 791px){
+    #mega #mm_opener {
+        background: #191b1d;
+        height: 59px;
+        bottom: -49px;
+        width: 87px;
+    }
+    #mega #mm_opener:hover {
+        background: #494e52;
+    }
+    #mega #mm_opener span{
+        width: 2.1em;
+    }
+    #mega #mm_opener i{
+        right: 66px;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    #binder #wsu-signature,[class*="-signature"] #binder #wsu-signature {
+        background-size: calc(100% - 148px) auto;
+        background-position: calc(50% + -20px) 60%;
+    }
+}

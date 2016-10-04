@@ -1,4 +1,5 @@
 /*jshint -W054 */
+var flexing = flexing || {};
 (function($,Drop,window){
 
 	/**
@@ -347,4 +348,4 @@
 	if( !$("#mega.setup").length && window.self === window.top){
 		$.wsu.fais.megamenu.init();
 	}
-}(jQuery,Drop,window));
+}(jQuery,flexing.Drop,window));

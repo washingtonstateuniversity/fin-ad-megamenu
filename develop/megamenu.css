@@ -176,11 +176,13 @@ _:-ms-fullscreen,
     float: left;
     width: 300px;
     box-sizing: border-box;
-    z-index: 2; }
+    z-index: 2;
+    margin: 0; }
   #mega .ui-tabs-vertical .ui-tabs-nav li {
     width: 100%;
     white-space: normal;
-    line-height: 1.8em; }
+    line-height: 1.8em;
+    font-size: 10px; }
   #mega .ui-tabs-vertical .ui-tabs-nav li a {
     display: block; }
   #mega .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
@@ -267,11 +269,11 @@ _:-ms-fullscreen,
   #mega a[href^="mailto:"]:before {
     font-size: 13px; }
   #mega a[href^="mailto:"] {
-    padding: 0px 5px;
-    margin: 0px;
-    height: 28px;
+    padding: 0 6%;
+    margin: 1.4px .15em 0 .25em;
     text-overflow: ellipsis;
-    white-space: nowrap; }
+    white-space: nowrap;
+    line-height: 1.9em; }
   #mega .leadership_bio {
     padding: 0px;
     margin: 0px;
@@ -352,7 +354,8 @@ _:-ms-fullscreen,
   padding: 3px 5px;
   box-shadow: 0 0 5px black;
   width: 100%;
-  z-index: 3; }
+  z-index: 3;
+  margin: 0; }
 
 .res-menu-wrap li {
   padding: 0;
@@ -376,3 +379,21 @@ _:-ms-fullscreen,
 
 #res_selected {
   display: none; }
+
+@media screen and (max-width: 791px) {
+  #mega #mm_opener {
+    background: #191b1d;
+    height: 59px;
+    bottom: -49px;
+    width: 87px; }
+  #mega #mm_opener:hover {
+    background: #494e52; }
+  #mega #mm_opener span {
+    width: 2.1em; }
+  #mega #mm_opener i {
+    right: 66px; } }
+
+@media only screen and (max-width: 530px) {
+  #binder #wsu-signature, [class*="-signature"] #binder #wsu-signature {
+    background-size: calc(100% - 148px) auto;
+    background-position: calc(50% + -20px) 60%; } }
