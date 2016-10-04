@@ -27,7 +27,7 @@
             "https://webcore.fais.wsu.edu/resources/central_FnA_theme/"+dev+"megamenu/megamenu.css"
         ];
         if( !$("link[href*='/resources/flexwork/flexwork-']").length ){
-            css_dependants.push('https://webcore.fais.wsu.edu/resources/flexwork/flexwork-light.css');
+            css_dependants.push('https://webcore.fais.wsu.edu/resources/flexwork/'+dev+'flexwork-light.css');
         }
 
         var loading = null;
