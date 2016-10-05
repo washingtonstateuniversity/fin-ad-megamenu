@@ -3,7 +3,7 @@
 */
 (function($){
     var dev = "";
-    if( -1 !== window.location.host.indexOf("wp.wsu.dev") ){
+    if( -1 !== window.location.host.indexOf("wp.wsu.dev") || -1 !== window.location.host.indexOf("stage.") ){
         dev = "dev/";
     }
         function async_load_js(url){
@@ -26,7 +26,7 @@
         var css_dependants = [
             "https://webcore.fais.wsu.edu/resources/central_FnA_theme/"+dev+"megamenu/megamenu.css"
         ];
-        if( !$("link[href*='/resources/flexwork/flexwork-']").length ){
+        if( !$("link[href*='/resources/flexwork/"+dev+"flexwork-']").length ){
             css_dependants.push('https://webcore.fais.wsu.edu/resources/flexwork/'+dev+'flexwork-light.css');
         }
 
