@@ -40,6 +40,16 @@ _:-ms-fullscreen,
     }
 }
 
+_::-webkit-full-page-media, _:future, :root #mega .ui-tabs-vertical .ui-tabs-panel {
+    float: none;
+}
+_::-webkit-full-page-media, _:future, :root #mega .ui-tabs-vertical .ui-tabs-nav {
+    float: none;
+}
+
+
+
+
 @media (max-width: 989px) {
 
 	body.admin-bar #mega {

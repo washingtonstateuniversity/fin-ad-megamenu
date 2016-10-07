@@ -137,6 +137,22 @@ a svg#Layer_1 path, a svg#Layer_1 polygon {
     padding: 0;
 }
 
+.ui-helper-clearfix:before, .ui-helper-clearfix:after {
+    content: "";
+    display: table;
+    border-collapse: collapse;
+}
+
+.ui-helper-clearfix:after {
+    clear: both;
+}
+
+.ui-helper-clearfix:before, .ui-helper-clearfix:after {
+    content: "";
+    display: table;
+    border-collapse: collapse;
+}
+
  .ui-tabs-panel ol,  .ui-tabs-panel ul, #mesga .ui-tabs-panel ol a,  .ui-tabs-panel ul a {
     font-weight: 600;
     font-size: 1.3em;
