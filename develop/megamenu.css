@@ -130,6 +130,16 @@ _:-ms-fullscreen,
     font-weight: 600; }
   #mega ol, #mega ul {
     padding: 0; }
+  #mega .ui-helper-clearfix:before, #mega .ui-helper-clearfix:after {
+    content: "";
+    display: table;
+    border-collapse: collapse; }
+  #mega .ui-helper-clearfix:after {
+    clear: both; }
+  #mega .ui-helper-clearfix:before, #mega .ui-helper-clearfix:after {
+    content: "";
+    display: table;
+    border-collapse: collapse; }
   #mega .ui-tabs-panel ol, #mega .ui-tabs-panel ul, #mega #mesga .ui-tabs-panel ol a, #mega .ui-tabs-panel ul a {
     font-weight: 600;
     font-size: 1.3em; }
@@ -302,6 +312,12 @@ _:-ms-fullscreen,
     line-height: 25px; }
   #mega .leadership_bio p:last-child {
     margin: 0px; }
+
+_::-webkit-full-page-media, _:future, :root #mega .ui-tabs-vertical .ui-tabs-panel {
+  float: none; }
+
+_::-webkit-full-page-media, _:future, :root #mega .ui-tabs-vertical .ui-tabs-nav {
+  float: none; }
 
 @media (max-width: 989px) {
   body.admin-bar #mega {
