@@ -8,7 +8,10 @@ a {
     transition:none;
 }
 
-
+.ui-tabs-nav > li:before,
+#mega_crumb > li:before{
+    content:none;
+}
 
 #megacontent{
     overflow: hidden;

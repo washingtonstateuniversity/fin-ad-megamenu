@@ -33,6 +33,9 @@ _:-ms-fullscreen,
   #mega .grid-part {
     -webkit-transition: none;
             transition: none; }
+  #mega .ui-tabs-nav > li:before,
+  #mega #mega_crumb > li:before {
+    content: none; }
   #mega #megacontent {
     overflow: hidden;
     box-sizing: border-box;
