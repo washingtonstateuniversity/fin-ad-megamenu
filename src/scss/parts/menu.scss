@@ -335,18 +335,7 @@ background: none;
     }
 }
 
-a[href^="mailto:"]:before {
-    font-size: 13px;
-}
 
-a[href^="mailto:"] {
-    padding: 0 6%;
-    margin: 1.4px .15em 0 .25em;
-    //height: 11.5px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 1.9em;
-}
 
 .leadership_bio {
     padding: 0px;
