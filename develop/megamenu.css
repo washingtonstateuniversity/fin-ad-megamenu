@@ -280,14 +280,6 @@ _:-ms-fullscreen,
     #mega .drop-element.drop-open {
       display: block;
       width: calc(100% - 22px); } }
-  #mega a[href^="mailto:"]:before {
-    font-size: 13px; }
-  #mega a[href^="mailto:"] {
-    padding: 0 6%;
-    margin: 1.4px .15em 0 .25em;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 1.9em; }
   #mega .leadership_bio {
     padding: 0px;
     margin: 0px;
