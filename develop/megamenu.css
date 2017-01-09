@@ -323,7 +323,8 @@ _::-webkit-full-page-media, _:future, :root #mega .ui-tabs-vertical .ui-tabs-nav
   #mega .ui-tabs-vertical .ui-tabs-nav {
     width: 225px; }
   #mega .ui-tabs-vertical .ui-tabs-panel {
-    width: calc(100% - 225px); }
+    width: calc(100% - 225px);
+    font-size: 80%; }
   #mega li.ui-state-default.ui-corner-left a:hover, #mega .ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
     background: none;
     /* border: 1px solid #fff; */
