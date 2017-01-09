@@ -6,8 +6,8 @@ body{position: relative;}
     box-sizing: border-box;
 }
 //put these overrides in seperate file
-.ui-widget {
-    font-family: Verdana,Arial,sans-serif;
+#mega .ui-widget {
+    font-family: 'Open Sans', 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
     font-size: 100%;
 }
 
@@ -51,10 +51,46 @@ _::-webkit-full-page-media, _:future, :root #mega .ui-tabs-vertical .ui-tabs-nav
 
 
 @media (max-width: 989px) {
-
+    /*.alignright-at-992{
+        float:right;
+    }*/
 	body.admin-bar #mega {
 		margin-top: 1px;
 	}
+
+
+    #mega .ui-tabs-vertical .ui-tabs-nav {
+        width: 225px;
+    }
+    #mega .ui-tabs-vertical .ui-tabs-panel {
+        width: calc(100% - 225px);
+    }
+    #mega li.ui-state-default.ui-corner-left a:hover, #mega .ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
+        background: none;
+        /* border: 1px solid #fff; */
+        border-right: none;
+        /* background: rgba(255, 255, 255, 0.61) url(http://webcore.fais.wsu.edu/resources/central_FnA_theme/megamenu/images/content-bk.jpg) center center repeat; */
+        border-right: 0;
+        border: 1px solid #fff;
+        /* border-right-width: 1px; */
+        border-right: none;
+        width: calc( 100% - -2px);
+        margin-top: -2px;
+        padding-bottom: 13px;
+        margin-bottom: -3.3px;
+        border-top: none;
+    }
+
+    #mega .ui-tabs-vertical .ui-tabs-nav li a {
+        color: #fff;
+        font-weight: 600;
+        text-shadow: 1px 1px 1px #000;
+        font-size: 15px;
+        padding: 9px 5px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
 .drop-element {
@@ -65,7 +101,7 @@ _::-webkit-full-page-media, _:future, :root #mega .ui-tabs-vertical .ui-tabs-nav
 }
 #res_selected{
     font-size: 2.1em;
-    font-weight: 900;
+    font-weight: 700;
     border: 2px solid #494949;
     border-radius: 5px;
     padding: 5px;

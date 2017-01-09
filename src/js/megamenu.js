@@ -56,13 +56,13 @@ var flexing = flexing || {};
             "tabs":{
                 "wrapper":"<div id='megatabs' class='ui-tabs-vertical flex-row column-at-768'><ul class='hide-below-768'><% this.tabs_menu %></ul><% this.tabs %></div>",
                 "content":"<div id='tabs-<% this.tab_idx %>' class='full-width-at-768' style='display:none;'><% this.tab_content %></div>",
-                "menu_item":"<li role='tab' aria-controls='tabs-<% this.menu_tab_idx %>' aria-labelledby='tabs-<% this.menu_tab_idx %>_link'><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %><% this.prefix %>' class='ui-tabs-anchor' role='presentation' id='tabs-<% this.menu_tab_idx %>_link' ><% this.menu_tab_name %></a></li>",
+                "menu_item":"<li role='tab' aria-controls='tabs-<% this.menu_tab_idx %>' aria-labelledby='tabs-<% this.menu_tab_idx %>_link'><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %><% this.prefix %>' class='ui-tabs-anchor' role='presentation' title='<% this.menu_tab_name %>' id='tabs-<% this.menu_tab_idx %>_link' ><% this.menu_tab_name %></a></li>",
                 "resmenu_item":"<li><a data-idx='<% this.count %>' href='#tabs-<% this.menu_tab_idx %><% this.prefix %>'><% this.menu_tab_name %></a></li>",
                 "res_menu_wrap":"<div id='res_wrap'><span id='res_selected'></span><span class='dropdown-menu'><ul class='res-menu-wrap'><% this.res_tabs_menu %></ul></span></div>",
             },
             "header":{
                 "container":"<div id='mega_header' class='flex-row column-at-768'><h2>Finance and Administration</h2><ul id='mega_crumb'><% this.crumbs %></ul></div>",
-                "item":"<li><a href='<% this.crumb_url %>' data-relation='<% this.data %>'><% this.crumb_name %></a></li>",
+                "item":"<li><a href='<% this.crumb_url %>' data-relation='<% this.data %>' title='<%  this.crumb_title %>'><% this.crumb_name %></a></li>",
             },
             "opener":'<div id="mm_opener"><span>'+MM.fna_logo+'</span><i></i></div>'
         };
@@ -242,11 +242,15 @@ var flexing = flexing || {};
                                 list.push({
                                     _url : "https://baf.wsu.edu",
                                     _name : MM.fna_logo,
+                                    _title : "F&A home",
                                     _data:"root"
                                 });
 
                                 $.each( list, function(idx, item){
-                                    area_html += $.runTemplate( MM.template.header.item, { crumb_url:item._url, crumb_name:item._name ,data:item._data  });
+                                    if( "undefined" === item._title){
+                                        item._title = item._name;
+                                    }
+                                    area_html += $.runTemplate( MM.template.header.item, { crumb_url:item._url, crumb_name:item._name ,data:item._data,  crumb_title: item._title  });
                                 });
 
 
